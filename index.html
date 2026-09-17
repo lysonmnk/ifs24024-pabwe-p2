@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaMind AI — Solusi Kecerdasan Artifisial & Otomasi Enterprise</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- External Pure CSS (Tanpa Framework Sesuai Ketentuan Spesifikasi) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER & NAVIGATION BAR
+       ========================================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <!-- Brand Logo & Nama Perusahaan -->
+      <a href="index.html" class="brand-logo" aria-label="NovaMind AI Home">
+        <img src="assets/img/logo.svg" alt="NovaMind AI Logo" width="32" height="32">
+        <span>NovaMind AI</span>
+      </a>
+
+      <!-- Menu Navigasi Utama -->
+      <nav aria-label="Navigasi Utama">
+        <ul class="nav-links" id="primaryNav">
+          <li><a href="#layanan" class="nav-item">Layanan AI</a></li>
+          <li><a href="#tentang" class="nav-item">Tentang Kami</a></li>
+          <li><a href="#keunggulan" class="nav-item">Keunggulan</a></li>
+          <li><a href="#kontak" class="nav-item">Kontak</a></li>
+          <!-- Navigasi Lintas Halaman Sesuai Spesifikasi -->
+          <li><a href="blog.html" class="nav-item">Blog Riset</a></li>
+          <li><a href="cv.html" class="nav-item">Profil CV</a></li>
+        </ul>
+      </nav>
+
+      <!-- Tombol CTA Header & Hamburger Mobile -->
+      <div class="nav-actions">
+        <a href="#kontak" class="btn btn-primary">Mulai Konsultasi</a>
+        <button class="nav-toggle" id="navToggleBtn" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MAIN CONTENT
+       ========================================== -->
+  <main>
+    
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="section-badge">Solusi AI Generatif & Otomasi Cerdas</span>
+          <h1 class="hero-title">Akselerasi Bisnis Anda dengan <span class="gradient-text">Kecerdasan Artifisial</span> Terdepan</h1>
+          <p class="hero-description">
+            NovaMind AI membantu institusi dan perusahaan enterprise mengintegrasikan LLM kustom, computer vision, serta agen otomasi cerdas untuk efisiensi operasional tanpa batas.
+          </p>
+          <div class="hero-cta">
+            <a href="#layanan" class="btn btn-primary">Eksplorasi Solusi Kami</a>
+            <a href="blog.html" class="btn btn-secondary">Baca Riset Terbaru</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item">
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>99.4% Akurasi Prediksi</span>
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Keamanan Standar ISO 27001</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-card-main">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding-bottom: 0.75rem;">
+              <div style="display: flex; gap: 0.35rem;">
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+              </div>
+              <span style="font-size: 0.75rem; color: var(--color-text-muted); font-family: var(--font-family-mono);">novamind-rag-agent.py</span>
+            </div>
+            <pre class="ai-code-preview"><code><span class="code-comment"># Pipeline Inisialisasi Model AI Enterprise</span>
+<span class="code-keyword">from</span> novamind.core <span class="code-keyword">import</span> NeuralEngine, VectorStore
+
+engine = NeuralEngine(model=<span class="code-str">"novamind-ultra-v3"</span>)
+rag_db = VectorStore.connect(cluster=<span class="code-str">"prod-secure"</span>)
+
+<span class="code-comment"># Eksekusi Query Kognitif Otomatis</span>
+response = engine.<span class="code-fn">generate_agentic_workflow</span>(
+    dataset=rag_db,
+    latency_limit_ms=<span class="code-keyword">120</span>
+)
+<span class="code-fn">print</span>(f<span class="code-str">"AI Ready. Status: {response.status}"</span>)</code></pre>
+          </div>
+          <div class="floating-badge">
+            <span class="badge-stat">40%+</span>
+            <span class="badge-label">Peningkatan Efisiensi<br>Operasional Klien</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. LAYANAN AI (SERVICES) -->
+    <section class="services-section" id="layanan">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Solusi Spesialis Kami</span>
+          <h2 class="section-title">Layanan Kecerdasan Artifisial Kelas Enterprise</h2>
+          <p class="section-desc">Kami merancang arsitektur AI modular yang disesuaikan secara khusus dengan alur kerja, data privat, dan tujuan strategis bisnis Anda.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1: Generative AI & LLM -->
+          <article class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <line x1="9" y1="10" x2="15" y2="10"></line>
+                <line x1="12" y1="7" x2="12" y2="13"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Generative AI & Chatbot Kustom</h3>
+            <p class="service-description">
+              Asisten percakapan cerdas yang dilatih dengan data internal perusahaan menggunakan arsitektur RAG (Retrieval-Augmented Generation) untuk respon akurat dan aman tanpa halusinasi.
+            </p>
+            <div class="service-features">
+              <div class="service-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Integrasi Database Vektor Privat</span>
+              </div>
+              <div class="service-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Dukungan Multi-bahasa & Konteks Dinamis</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Computer Vision -->
+          <article class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Computer Vision & Pengenalan Objek</h3>
+            <p class="service-description">
+              Sistem inspeksi visual otomatis berbasis Deep Learning untuk deteksi cacat produksi di pabrik, OCR dokumen berkecepatan tinggi, dan pemantauan keselamatan kerja (K3).
+            </p>
+            <div class="service-features">
+              <div class="service-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Pemrosesan Real-time Edge Computing</span>
+              </div>
+              <div class="service-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Ekstraksi Dokumen Terstruktur Otomatis</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Predictive Analytics & Automation -->
+          <article class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Analitik Prediktif & Agen Otomasi</h3>
+            <p class="service-description">
+              Model machine learning untuk peramalan tren penjualan, deteksi anomali finansial, dan agen otomatis yang mampu mengeksekusi tugas administratif berulang secara otonom.
+            </p>
+            <div class="service-features">
+              <div class="service-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Pipeline Data Otomatis End-to-End</span>
+              </div>
+              <div class="service-feature-item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Integrasi Dashboard Eksekutif Real-time</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TENTANG KAMI & KEUNGGULAN -->
+    <section class="about-section" id="tentang">
+      <div class="container about-grid">
+        <div class="about-content">
+          <span class="section-badge">Tentang NovaMind AI</span>
+          <h3>Menjembatani Riset Mutakhir AI ke Implementasi Nyata</h3>
+          <p>
+            Didirikan oleh praktisi kecerdasan artifisial dan insinyur perangkat lunak, NovaMind AI berkomitmen menghadirkan inovasi komputasi kognitif yang bertanggung jawab, transparan, dan berdampak langsung pada pertumbuhan bisnis klien.
+          </p>
+          <p>
+            Setiap model AI yang kami bangun mengikuti prinsip etika kecerdasan buatan, privasi data ketat, dan arsitektur mikroservis siap skala tinggi.
+          </p>
+
+          <div class="stats-grid" id="keunggulan">
+            <div class="stat-box">
+              <div class="stat-number">50+</div>
+              <div class="stat-title">Proyek AI Selesai Diimplementasikan</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">99.9%</div>
+              <div class="stat-title">SLA Ketersediaan Sistem Klien</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">12x</div>
+              <div class="stat-title">Kecepatan Pengambilan Keputusan Data</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">100%</div>
+              <div class="stat-title">Kepemilikan Penuh Hak Cipta Model Klien</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="visual-pattern"></div>
+          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">Alur Kerja Implementasi NovaMind</h4>
+          <div class="pipeline-list">
+            <div class="pipeline-step">
+              <div class="step-num">1</div>
+              <div class="step-info">
+                <h4>Audit Data & Identifikasi Kasus Penggunaan</h4>
+                <p>Mengevaluasi kesiapan data internal dan memetakan ROI potensial.</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">2</div>
+              <div class="step-info">
+                <h4>Pengembangan Prototipe & Fine-Tuning</h4>
+                <p>Pelatihan model kustom dengan teknik transfer learning dan RAG.</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">3</div>
+              <div class="step-info">
+                <h4>Deployment Aman & Integrasi API</h4>
+                <p>Penyebaran model di lingkungan on-premise atau private cloud Anda.</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">4</div>
+              <div class="step-info">
+                <h4>Monitoring Kontinu & Retraining Otonom</h4>
+                <p>Menjaga performa model dari data drift dengan feedback loops adaptif.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. KONTAK & FORM KONSULTASI -->
+    <section class="contact-section" id="kontak">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Hubungi Kami</span>
+          <h2 class="section-title">Konsultasikan Kebutuhan AI Perusahaan Anda</h2>
+          <p class="section-desc">Tim arsitek solusi kami siap mendiskusikan studi kelayakan, arsitektur sistem, dan estimasi implementasi proyek Anda.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Kontak -->
+          <div class="contact-info-card">
+            <h3>Mari Berdiskusi</h3>
+            <p>Jadwalkan sesi demonstrasi atau diskusi teknis bersama konsultan AI senior kami.</p>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="info-text">
+                <h4>Email Resmi</h4>
+                <p>contact@novamind.ai</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="info-text">
+                <h4>Telepon / WhatsApp</h4>
+                <p>+62 (021) 8089-2234</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="info-text">
+                <h4>Pusat Riset & Inovasi</h4>
+                <p>Kawasan Sains & Teknologi, Laguboti, Toba</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Kontak -->
+          <div class="contact-form-container">
+            <form action="#kontak" method="POST" onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah diterima oleh tim konsultan NovaMind AI.');">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" class="form-label">Nama Lengkap *</label>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Perusahaan *</label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="budi@perusahaan.co.id" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="serviceType" class="form-label">Bidang Solusi yang Diminati</label>
+                <select id="serviceType" name="serviceType" class="form-select">
+                  <option value="rag">Generative AI & LLM Chatbot</option>
+                  <option value="vision">Computer Vision & OCR Otomatis</option>
+                  <option value="analytics">Predictive Analytics & Otomasi Alur Kerja</option>
+                  <option value="consulting">Audit Kesiapan Data & Konsultasi AI</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Ringkasan Kebutuhan atau Tantangan Bisnis *</label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="Jelaskan secara singkat permasalahan dan tujuan yang ingin dicapai melalui adopsi AI..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Permintaan Konsultasi</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Kolom Brand -->
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <img src="assets/img/logo.svg" alt="NovaMind AI" width="28" height="28">
+          <span>NovaMind AI</span>
+        </a>
+        <p>
+          Perusahaan penyedia solusi jasa kecerdasan artifisial komprehensif untuk mendorong efisiensi, akurasi, dan inovasi industri nasional.
+        </p>
+      </div>
+
+      <!-- Kolom Navigasi Cepat -->
+      <div class="footer-col">
+        <h4>Halaman Utama</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Landing Page</a></li>
+          <li><a href="blog.html">Blog & Riset AI</a></li>
+          <li><a href="blog-detail.html">Detail Artikel</a></li>
+          <li><a href="cv.html">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom Solusi -->
+      <div class="footer-col">
+        <h4>Layanan AI</h4>
+        <ul class="footer-links">
+          <li><a href="#layanan">LLM & Chatbot RAG</a></li>
+          <li><a href="#layanan">Computer Vision</a></li>
+          <li><a href="#layanan">Analitik Prediktif</a></li>
+          <li><a href="#layanan">Otomasi Alur Kerja</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom Informasi Akademik -->
+      <div class="footer-col">
+        <h4>Tentang Proyek</h4>
+        <p style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.75rem;">
+          Praktikum 2 — PABWE 2026<br>
+          Topik: Pure CSS, Bootstrap 5, Tailwind CSS 4
+        </p>
+        <span style="font-size: 0.75rem; color: #64748b;">Dikerjakan secara modular dengan pemisahan dependensi ketat.</span>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 NovaMind AI Services. Hak Cipta Dilindungi Undang-Undang.</p>
+      <p style="font-size: 0.8rem; color: #64748b;">Designed with Semantic HTML5 & Pure CSS.</p>
+    </div>
+  </footer>
+
+  <!-- Script Ringan Navigasi Mobile -->
+  <script>
+    const navBtn = document.getElementById('navToggleBtn');
+    const navList = document.getElementById('primaryNav');
+    if (navBtn && navList) {
+      navBtn.addEventListener('click', () => {
+        const isOpen = navList.classList.toggle('active');
+        navBtn.setAttribute('aria-expanded', isOpen);
+      });
+    }
+  </script>
+</body>
+</html>
