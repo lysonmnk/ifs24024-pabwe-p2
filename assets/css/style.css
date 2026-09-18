@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NovaMind AI - External Stylesheet (Pure CSS)
+   HyperLink - External Stylesheet (Pure CSS)
    File: assets/css/style.css
    Topik: Praktikum 2 PABWE 2026
    Deskripsi: Styling landing page murni tanpa framework (Zero Bootstrap/Tailwind)
@@ -11,7 +11,7 @@
   --color-primary: #1d4ed8;       /* Diperkuat ke blue-700 untuk kontras WCAG AA */
   --color-primary-dark: #1e40af;
   --color-primary-light: #3b82f6;
-  --color-accent: #0284c7;        /* Sky-600 untuk kontras lebih tajam */
+  --color-accent: #0284c7;        /* Sky-600 untuk kontras tajam */
   --color-accent-hover: #0369a1;
   
   --color-dark: #0f172a;
@@ -324,11 +324,11 @@ button, input, textarea, select {
   gap: 0.5rem;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #1e293b;                 /* Kontras tinggi */
+  color: #1e293b;
 }
 
 .trust-item svg {
-  color: #059669;                 /* Emerald-600 */
+  color: #059669;
   width: 18px;
   height: 18px;
 }
@@ -362,7 +362,7 @@ button, input, textarea, select {
 .code-keyword { color: #fb7185; }
 .code-fn { color: #38bdf8; }
 .code-str { color: #bef264; }
-.code-comment { color: #cbd5e1; font-style: italic; } /* Diperbaiki dari #64748b ke #cbd5e1 (kontras 8.9:1) */
+.code-comment { color: #cbd5e1; font-style: italic; }
 
 .floating-badge {
   position: absolute;
@@ -584,7 +584,7 @@ button, input, textarea, select {
 
 .step-info p {
   font-size: 0.85rem;
-  color: #cbd5e1;                 /* Diperbaiki dari #94a3b8 ke #cbd5e1 (kontras tinggi) */
+  color: #cbd5e1;
   margin: 0;
 }
 
@@ -615,7 +615,7 @@ button, input, textarea, select {
 }
 
 .contact-info-card p {
-  color: #cbd5e1;                 /* Kontras tinggi pada background gelap */
+  color: #cbd5e1;
   font-size: 0.95rem;
   margin-bottom: 2rem;
 }
@@ -709,8 +709,8 @@ button, input, textarea, select {
 
 /* 9. FOOTER DENGAN KONTRAS TINGGI */
 .site-footer {
-  background-color: #0b0f19;      /* Dark surface */
-  color: #cbd5e1;                 /* Slate-300: kontras 10.5:1 pada latar gelap */
+  background-color: #0b0f19;
+  color: #cbd5e1;
   padding-block: var(--spacing-xl) var(--spacing-md);
   border-top: 1px solid #1e293b;
 }
@@ -747,7 +747,7 @@ button, input, textarea, select {
 
 .footer-links a {
   font-size: 0.875rem;
-  color: #cbd5e1;                 /* Diperbaiki dari #94a3b8 ke #cbd5e1 (kontras 10.5:1) */
+  color: #cbd5e1;
 }
 
 .footer-links a:hover {
@@ -767,7 +767,7 @@ button, input, textarea, select {
 
 .footer-bottom-note {
   font-size: 0.8rem;
-  color: #cbd5e1;                 /* Diperbaiki dari #64748b ke #cbd5e1 */
+  color: #cbd5e1;
 }
 
 /* 10. RESPONSIVE MEDIA QUERIES */

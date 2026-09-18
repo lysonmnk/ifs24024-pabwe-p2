@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog & Riset AI — NovaMind AI Services</title>
+  <title>Blog & Riset AI — HyperLink Services</title>
 
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap 5.3 CSS CDN (Sesuai Ketentuan Spesifikasi blog.html) -->
+  <!-- Bootstrap 5.3 CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   
   <!-- Bootstrap Icons CDN -->
@@ -49,13 +49,13 @@
     
     /* WCAG AA Contrast Overrides */
     .lead-accessible {
-      color: #334155 !important; /* Kontras 9.1:1 pada putih */
+      color: #334155 !important;
     }
     .card-text-accessible {
-      color: #334155 !important; /* Kontras 9.1:1 pada putih */
+      color: #334155 !important;
     }
     .meta-text-accessible {
-      color: #475569 !important; /* Kontras 7.1:1 pada putih */
+      color: #475569 !important;
     }
     .btn-outline-secondary {
       color: #334155 !important;
@@ -74,21 +74,21 @@
       border: 1px solid #bfdbfe !important;
     }
     .badge-info-accessible {
-      background-color: #075985 !important; /* Sky-800 dengan teks putih */
+      background-color: #075985 !important;
       color: #ffffff !important;
     }
     .badge-success-accessible {
-      background-color: #065f46 !important; /* Emerald-800 */
+      background-color: #065f46 !important;
       color: #ffffff !important;
     }
     .badge-warning-accessible {
-      background-color: #78350f !important; /* Amber-900 */
+      background-color: #78350f !important;
       color: #ffffff !important;
     }
 
-    /* Footer High Contrast */
+    /* Footer High Contrast (Fix kontras text-primary-emphasis pada latar hitam) */
     .footer-custom-text {
-      color: #cbd5e1 !important; /* Slate-300: Kontras 14.2:1 pada hitam */
+      color: #cbd5e1 !important;
     }
     .footer-custom-link {
       color: #cbd5e1 !important;
@@ -97,6 +97,11 @@
     }
     .footer-custom-link:hover {
       color: #60a5fa !important;
+    }
+    .footer-active-link {
+      color: #60a5fa !important;      /* Kontras 8.5:1 pada latar hitam */
+      font-weight: 700;
+      text-decoration: none;
     }
     .footer-custom-badge {
       background-color: #1e293b !important;
@@ -107,38 +112,33 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-  <!-- ==========================================
-       HEADER & NAVBAR (BOOTSTRAP 5)
-       ========================================== -->
+  <!-- HEADER & NAVBAR -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3 shadow-sm" aria-label="Navigasi Utama Blog">
       <div class="container">
-        <!-- Logo & Brand Name (Fix image-redundant-alt dengan alt="" aria-hidden="true") -->
-        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="NovaMind AI Beranda">
+        <!-- Logo & Brand Name (Fix image-redundant-alt) -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="HyperLink Beranda">
           <img src="assets/img/logo.svg" alt="" width="32" height="32" aria-hidden="true">
-          <span class="fs-4 brand-text">NovaMind AI</span>
+          <span class="fs-4 brand-text">HyperLink</span>
         </a>
 
-        <!-- Hamburger Toggle -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blogNavbarContent" aria-controls="blogNavbarContent" aria-expanded="false" aria-label="Buka menu navigasi">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menu Navigasi -->
         <div class="collapse navbar-collapse" id="blogNavbarContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Landing Page</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active fw-semibold text-primary-emphasis" aria-current="page" href="blog.html">Blog & Riset AI</a>
+              <a class="nav-link active fw-semibold text-white" aria-current="page" href="blog.html">Blog & Riset AI</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="cv.html">Curriculum Vitae</a>
             </li>
           </ul>
 
-          <!-- Aksi Navigasi Cepat -->
           <div class="d-flex align-items-center gap-2">
             <a href="index.html#kontak" class="btn btn-outline-light btn-sm px-3">Hubungi Konsultan</a>
             <a href="blog-detail.html" class="btn btn-primary btn-sm px-3">
@@ -150,9 +150,7 @@
     </nav>
   </header>
 
-  <!-- ==========================================
-       MAIN CONTENT (BLOG LIST)
-       ========================================== -->
+  <!-- MAIN CONTENT -->
   <main class="flex-grow-1">
 
     <!-- Hero Header Blog -->
@@ -165,11 +163,10 @@
             </span>
             <h1 class="display-5 fw-bold text-dark mb-3" id="blogTitle">Wawasan Terkini Kecerdasan Artifisial</h1>
             <p class="lead lead-accessible mb-0">
-              Temukan analisis mendalam, arsitektur teknis, dan praktik terbaik implementasi AI skala produksi dari para praktisi NovaMind AI.
+              Temukan analisis mendalam, arsitektur teknis, dan praktik terbaik implementasi AI skala produksi dari para praktisi HyperLink.
             </p>
           </div>
           <div class="col-lg-4 mt-4 mt-lg-0">
-            <!-- Search Widget Sederhana -->
             <div class="input-group">
               <span class="input-group-text bg-light border-end-0"><i class="bi bi-search text-dark" aria-hidden="true"></i></span>
               <input type="text" class="form-control border-start-0 bg-light" placeholder="Cari topik (RAG, LLM, Vision)..." aria-label="Pencarian Blog">
@@ -180,7 +177,7 @@
       </div>
     </section>
 
-    <!-- Daftar Kategori Filter -->
+    <!-- Filter Kategori -->
     <section class="py-3 bg-light border-bottom" aria-label="Filter Kategori">
       <div class="container d-flex gap-2 flex-wrap align-items-center">
         <span class="small fw-bold me-2 text-dark"><i class="bi bi-funnel me-1" aria-hidden="true"></i>Kategori:</span>
@@ -197,7 +194,7 @@
       <div class="container">
         <div class="row g-4">
 
-          <!-- Artikel 1 (Featured / Terhubung ke blog-detail.html) -->
+          <!-- Artikel 1 (Featured) -->
           <div class="col-md-6 col-lg-6">
             <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="position-relative">
@@ -215,11 +212,11 @@
                 <p class="card-text card-text-accessible mb-4 flex-grow-1">
                   Bagaimana mengintegrasikan model bahasa besar (LLM) dengan database vektor on-premise tanpa mengekspos data nasabah sensitif ke server publik.
                 </p>
-                <!-- Metadata: Penulis, Tanggal, Waktu Baca -->
+                <!-- Metadata: Penulis Lyson Paulus Esar Manik, Tanggal, Waktu Baca -->
                 <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
                   <div class="d-flex align-items-center gap-2">
                     <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
-                    <span class="fw-bold text-dark">Lyson M.</span>
+                    <span class="fw-bold text-dark">Lyson Paulus Esar Manik</span>
                   </div>
                   <div class="d-flex align-items-center gap-3">
                     <span><i class="bi bi-calendar3 me-1 text-primary" aria-hidden="true"></i>16 Sep 2026</span>
@@ -328,7 +325,7 @@
 
         </div>
 
-        <!-- Pagination Bootstrap -->
+        <!-- Pagination -->
         <nav aria-label="Navigasi Halaman Blog" class="mt-5">
           <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -345,7 +342,7 @@
       </div>
     </section>
 
-    <!-- Newsletter CTA (Heading Order h1 -> h2, Teks Kontras Tinggi pada latar gelap) -->
+    <!-- Newsletter CTA (Heading Order h2) -->
     <section class="py-5 bg-dark text-white text-center" aria-labelledby="newsletterTitle">
       <div class="container py-3">
         <div class="row justify-content-center">
@@ -355,7 +352,7 @@
             <p class="mb-4" style="color: #e2e8f0;">
               Kami merangkum perkembangan LLM, paper riset terbuka, dan arsitektur AI terbaru langsung ke kotak masuk email Anda.
             </p>
-            <form class="row g-2 justify-content-center" onsubmit="event.preventDefault(); alert('Terima kasih telah berlangganan buletin NovaMind AI!');">
+            <form class="row g-2 justify-content-center" onsubmit="event.preventDefault(); alert('Terima kasih telah berlangganan buletin HyperLink!');">
               <div class="col-sm-8">
                 <input type="email" class="form-control form-control-lg" placeholder="Masukkan alamat email Anda" aria-label="Alamat email Anda" required>
               </div>
@@ -370,16 +367,14 @@
 
   </main>
 
-  <!-- ==========================================
-       FOOTER (Heading Order & WCAG AA Contrast)
-       ========================================== -->
+  <!-- FOOTER (Perbaikan kontras footer-active-link 8.5:1) -->
   <footer class="bg-black py-5 border-top border-dark">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-5">
           <div class="d-flex align-items-center gap-2 mb-3">
             <img src="assets/img/logo.svg" alt="" width="28" height="28" aria-hidden="true">
-            <span class="fs-5 brand-text">NovaMind AI</span>
+            <span class="fs-5 brand-text">HyperLink</span>
           </div>
           <p class="small footer-custom-text pe-lg-5">
             Pusat keunggulan rekayasa kecerdasan artifisial terapan untuk efisiensi bisnis, keamanan data enterprise, dan transformasi digital masa depan.
@@ -389,7 +384,7 @@
           <p class="h6 text-white fw-bold mb-3">Struktur Halaman</p>
           <ul class="list-unstyled small d-flex flex-column gap-2">
             <li><a href="index.html" class="footer-custom-link">Landing Page (Pure CSS)</a></li>
-            <li><a href="blog.html" class="text-primary-emphasis text-decoration-none fw-bold">Daftar Blog (Bootstrap 5)</a></li>
+            <li><a href="blog.html" class="footer-active-link">Daftar Blog (Bootstrap 5)</a></li>
             <li><a href="blog-detail.html" class="footer-custom-link">Detail Blog (Bootstrap 5)</a></li>
             <li><a href="cv.html" class="footer-custom-link">Curriculum Vitae (Tailwind 4)</a></li>
           </ul>
@@ -406,13 +401,12 @@
       </div>
 
       <div class="pt-4 mt-4 border-top border-secondary-subtle d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small footer-custom-text">
-        <span>&copy; 2026 NovaMind AI Services. Hak cipta dilindungi undang-undang.</span>
+        <span>&copy; 2026 HyperLink Services. Hak cipta dilindungi undang-undang.</span>
         <span>Desain responsif dengan komponen resmi Bootstrap 5.</span>
       </div>
     </div>
   </footer>
 
-  <!-- Bootstrap 5.3 JS Bundle CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
