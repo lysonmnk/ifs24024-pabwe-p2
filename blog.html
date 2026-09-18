@@ -16,27 +16,27 @@
   <!-- Bootstrap Icons CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- Styling Pendukung Tipis Berbasis CSS Variable & Font -->
+  <!-- Penyesuaian Aksesibilitas WCAG 2 AA (Color Contrast >= 4.5:1) -->
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #f8fafc;
-      color: #1e293b;
+      color: #0f172a;
     }
     .brand-text {
-      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      background: linear-gradient(135deg, #1d4ed8, #0284c7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
     }
     .card-blog {
       transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #cbd5e1;
     }
     .card-blog:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
-      border-color: #cbd5e1;
+      border-color: #94a3b8;
     }
     .article-thumbnail {
       height: 210px;
@@ -44,7 +44,64 @@
       width: 100%;
     }
     .text-title-hover:hover {
-      color: #2563eb !important;
+      color: #1d4ed8 !important;
+    }
+    
+    /* WCAG AA Contrast Overrides */
+    .lead-accessible {
+      color: #334155 !important; /* Kontras 9.1:1 pada putih */
+    }
+    .card-text-accessible {
+      color: #334155 !important; /* Kontras 9.1:1 pada putih */
+    }
+    .meta-text-accessible {
+      color: #475569 !important; /* Kontras 7.1:1 pada putih */
+    }
+    .btn-outline-secondary {
+      color: #334155 !important;
+      border-color: #64748b !important;
+      font-weight: 500;
+    }
+    .btn-outline-secondary:hover {
+      background-color: #334155 !important;
+      color: #ffffff !important;
+    }
+    
+    /* Accessible Badges */
+    .badge-primary-accessible {
+      background-color: #dbeafe !important;
+      color: #1e40af !important;
+      border: 1px solid #bfdbfe !important;
+    }
+    .badge-info-accessible {
+      background-color: #075985 !important; /* Sky-800 dengan teks putih */
+      color: #ffffff !important;
+    }
+    .badge-success-accessible {
+      background-color: #065f46 !important; /* Emerald-800 */
+      color: #ffffff !important;
+    }
+    .badge-warning-accessible {
+      background-color: #78350f !important; /* Amber-900 */
+      color: #ffffff !important;
+    }
+
+    /* Footer High Contrast */
+    .footer-custom-text {
+      color: #cbd5e1 !important; /* Slate-300: Kontras 14.2:1 pada hitam */
+    }
+    .footer-custom-link {
+      color: #cbd5e1 !important;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-custom-link:hover {
+      color: #60a5fa !important;
+    }
+    .footer-custom-badge {
+      background-color: #1e293b !important;
+      color: #e2e8f0 !important;
+      border: 1px solid #475569 !important;
     }
   </style>
 </head>
@@ -56,14 +113,14 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3 shadow-sm" aria-label="Navigasi Utama Blog">
       <div class="container">
-        <!-- Logo & Brand Name Konsisten -->
-        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-          <img src="assets/img/logo.svg" alt="NovaMind AI Logo" width="32" height="32">
+        <!-- Logo & Brand Name (Fix image-redundant-alt dengan alt="" aria-hidden="true") -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="NovaMind AI Beranda">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32" aria-hidden="true">
           <span class="fs-4 brand-text">NovaMind AI</span>
         </a>
 
         <!-- Hamburger Toggle -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blogNavbarContent" aria-controls="blogNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blogNavbarContent" aria-controls="blogNavbarContent" aria-expanded="false" aria-label="Buka menu navigasi">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -81,11 +138,11 @@
             </li>
           </ul>
 
-          <!-- Aksi / Navigasi Cepat -->
+          <!-- Aksi Navigasi Cepat -->
           <div class="d-flex align-items-center gap-2">
             <a href="index.html#kontak" class="btn btn-outline-light btn-sm px-3">Hubungi Konsultan</a>
             <a href="blog-detail.html" class="btn btn-primary btn-sm px-3">
-              <i class="bi bi-star-fill me-1"></i> Artikel Utama
+              <i class="bi bi-star-fill me-1" aria-hidden="true"></i> Artikel Utama
             </a>
           </div>
         </div>
@@ -99,22 +156,22 @@
   <main class="flex-grow-1">
 
     <!-- Hero Header Blog -->
-    <section class="py-5 bg-white border-bottom">
+    <section class="py-5 bg-white border-bottom" aria-labelledby="blogTitle">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-8">
-            <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-bold text-uppercase mb-3">
-              <i class="bi bi-journal-code me-1"></i> Publikasi & Riset Industri
+            <span class="badge badge-primary-accessible px-3 py-2 rounded-pill fw-bold text-uppercase mb-3">
+              <i class="bi bi-journal-code me-1" aria-hidden="true"></i> Publikasi & Riset Industri
             </span>
-            <h1 class="display-5 fw-bold text-dark mb-3">Wawasan Terkini Kecerdasan Artifisial</h1>
-            <p class="lead text-secondary mb-0">
+            <h1 class="display-5 fw-bold text-dark mb-3" id="blogTitle">Wawasan Terkini Kecerdasan Artifisial</h1>
+            <p class="lead lead-accessible mb-0">
               Temukan analisis mendalam, arsitektur teknis, dan praktik terbaik implementasi AI skala produksi dari para praktisi NovaMind AI.
             </p>
           </div>
           <div class="col-lg-4 mt-4 mt-lg-0">
             <!-- Search Widget Sederhana -->
             <div class="input-group">
-              <span class="input-group-text bg-light border-end-0"><i class="bi bi-search text-muted"></i></span>
+              <span class="input-group-text bg-light border-end-0"><i class="bi bi-search text-dark" aria-hidden="true"></i></span>
               <input type="text" class="form-control border-start-0 bg-light" placeholder="Cari topik (RAG, LLM, Vision)..." aria-label="Pencarian Blog">
               <button class="btn btn-primary" type="button">Cari</button>
             </div>
@@ -124,9 +181,9 @@
     </section>
 
     <!-- Daftar Kategori Filter -->
-    <section class="py-3 bg-light border-bottom">
+    <section class="py-3 bg-light border-bottom" aria-label="Filter Kategori">
       <div class="container d-flex gap-2 flex-wrap align-items-center">
-        <span class="small text-muted fw-semibold me-2"><i class="bi bi-funnel me-1"></i>Kategori:</span>
+        <span class="small fw-bold me-2 text-dark"><i class="bi bi-funnel me-1" aria-hidden="true"></i>Kategori:</span>
         <button class="btn btn-sm btn-dark rounded-pill px-3">Semua Topik</button>
         <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">Generative AI & LLM</button>
         <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">Computer Vision</button>
@@ -135,40 +192,38 @@
       </div>
     </section>
 
-    <!-- Grid Artikel (Min. 4 Artikel AI) -->
-    <section class="py-5">
+    <!-- Grid Artikel (Heading Order h1 -> h2) -->
+    <section class="py-5" aria-label="Daftar Artikel">
       <div class="container">
         <div class="row g-4">
 
           <!-- Artikel 1 (Featured / Terhubung ke blog-detail.html) -->
           <div class="col-md-6 col-lg-6">
             <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
-              <!-- Thumbnail Gambar -->
               <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Retrieval-Augmented Generation">
-                <span class="position-absolute top-0 start-0 m-3 badge bg-primary text-white shadow-sm px-3 py-2 rounded-pill">
-                  <i class="bi bi-shield-lock-fill me-1"></i> Keamanan Finansial
+                <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Diagram arsitektur RAG perbankan">
+                <span class="position-absolute top-0 start-0 m-3 badge bg-primary text-white shadow-sm px-3 py-2 rounded-pill fw-semibold">
+                  <i class="bi bi-shield-lock-fill me-1" aria-hidden="true"></i> Keamanan Finansial
                 </span>
               </div>
               <div class="card-body p-4 d-flex flex-column">
-                <!-- Judul Artikel (Mengarah ke blog-detail.html) -->
                 <h2 class="card-title h4 fw-bold mb-3">
                   <a href="blog-detail.html" class="text-decoration-none text-dark text-title-hover">
                     Implementasi Retrieval-Augmented Generation (RAG) untuk Keamanan Data Perbankan
                   </a>
                 </h2>
-                <p class="card-text text-secondary mb-4 flex-grow-1">
+                <p class="card-text card-text-accessible mb-4 flex-grow-1">
                   Bagaimana mengintegrasikan model bahasa besar (LLM) dengan database vektor on-premise tanpa mengekspos data nasabah sensitif ke server publik.
                 </p>
-                <!-- Metadata: Penulis, Tanggal, Waktu Baca dengan Bootstrap Icons -->
-                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between text-muted small">
+                <!-- Metadata: Penulis, Tanggal, Waktu Baca -->
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
                   <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-person-circle fs-5 text-primary"></i>
-                    <span class="fw-semibold text-dark">Lyson M.</span>
+                    <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
+                    <span class="fw-bold text-dark">Lyson M.</span>
                   </div>
                   <div class="d-flex align-items-center gap-3">
-                    <span><i class="bi bi-calendar3 me-1"></i>16 Sep 2026</span>
-                    <span><i class="bi bi-clock me-1"></i>6 mnt baca</span>
+                    <span><i class="bi bi-calendar3 me-1 text-primary" aria-hidden="true"></i>16 Sep 2026</span>
+                    <span><i class="bi bi-clock me-1 text-primary" aria-hidden="true"></i>6 mnt baca</span>
                   </div>
                 </div>
               </div>
@@ -178,11 +233,10 @@
           <!-- Artikel 2: Computer Vision -->
           <div class="col-md-6 col-lg-6">
             <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
-              <!-- Thumbnail Gambar -->
               <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Computer Vision Factory Inspection">
-                <span class="position-absolute top-0 start-0 m-3 badge bg-info text-dark shadow-sm px-3 py-2 rounded-pill">
-                  <i class="bi bi-camera me-1"></i> Smart Factory
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Inspeksi otomatis pabrik dengan computer vision">
+                <span class="position-absolute top-0 start-0 m-3 badge badge-info-accessible shadow-sm px-3 py-2 rounded-pill fw-semibold">
+                  <i class="bi bi-camera me-1" aria-hidden="true"></i> Smart Factory
                 </span>
               </div>
               <div class="card-body p-4 d-flex flex-column">
@@ -191,17 +245,17 @@
                     Optimalisasi Computer Vision untuk Quality Assurance Manufaktur Berkecepatan Tinggi
                   </a>
                 </h2>
-                <p class="card-text text-secondary mb-4 flex-grow-1">
+                <p class="card-text card-text-accessible mb-4 flex-grow-1">
                   Studi implementasi deep learning berbasis YOLOv11 dan edge computing untuk mendeteksi mikrodefek pada perakitan microchip elektronik secara real-time.
                 </p>
-                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between text-muted small">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
                   <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-person-circle fs-5 text-info"></i>
-                    <span class="fw-semibold text-dark">Dr. Alamsyah</span>
+                    <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
+                    <span class="fw-bold text-dark">Dr. Alamsyah</span>
                   </div>
                   <div class="d-flex align-items-center gap-3">
-                    <span><i class="bi bi-calendar3 me-1"></i>12 Sep 2026</span>
-                    <span><i class="bi bi-clock me-1"></i>8 mnt baca</span>
+                    <span><i class="bi bi-calendar3 me-1 text-primary" aria-hidden="true"></i>12 Sep 2026</span>
+                    <span><i class="bi bi-clock me-1 text-primary" aria-hidden="true"></i>8 mnt baca</span>
                   </div>
                 </div>
               </div>
@@ -212,9 +266,9 @@
           <div class="col-md-6 col-lg-6">
             <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Autonomous AI Agents">
-                <span class="position-absolute top-0 start-0 m-3 badge bg-success text-white shadow-sm px-3 py-2 rounded-pill">
-                  <i class="bi bi-robot me-1"></i> Agentic AI
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Visualisasi alur kerja AI agents">
+                <span class="position-absolute top-0 start-0 m-3 badge badge-success-accessible shadow-sm px-3 py-2 rounded-pill fw-semibold">
+                  <i class="bi bi-robot me-1" aria-hidden="true"></i> Agentic AI
                 </span>
               </div>
               <div class="card-body p-4 d-flex flex-column">
@@ -223,17 +277,17 @@
                     Mengenal AI Agents: Paradigma Baru Otomasi Alur Kerja Terintegrasi Perusahaan
                   </a>
                 </h2>
-                <p class="card-text text-secondary mb-4 flex-grow-1">
+                <p class="card-text card-text-accessible mb-4 flex-grow-1">
                   Bukan sekadar chatbot biasa, agen otonom kini mampu merencanakan tugas multi-langkah, mengakses sistem ERP, dan memecahkan masalah tanpa instruksi berulang.
                 </p>
-                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between text-muted small">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
                   <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-person-circle fs-5 text-success"></i>
-                    <span class="fw-semibold text-dark">Siti Rahmawati</span>
+                    <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
+                    <span class="fw-bold text-dark">Siti Rahmawati</span>
                   </div>
                   <div class="d-flex align-items-center gap-3">
-                    <span><i class="bi bi-calendar3 me-1"></i>08 Sep 2026</span>
-                    <span><i class="bi bi-clock me-1"></i>5 mnt baca</span>
+                    <span><i class="bi bi-calendar3 me-1 text-primary" aria-hidden="true"></i>08 Sep 2026</span>
+                    <span><i class="bi bi-clock me-1 text-primary" aria-hidden="true"></i>5 mnt baca</span>
                   </div>
                 </div>
               </div>
@@ -244,9 +298,9 @@
           <div class="col-md-6 col-lg-6">
             <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Data Pipeline and Servers">
-                <span class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark shadow-sm px-3 py-2 rounded-pill">
-                  <i class="bi bi-hdd-network me-1"></i> MLOps & Infra
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Server rak data center dan cloud AI">
+                <span class="position-absolute top-0 start-0 m-3 badge badge-warning-accessible shadow-sm px-3 py-2 rounded-pill fw-semibold">
+                  <i class="bi bi-hdd-network me-1" aria-hidden="true"></i> MLOps & Infra
                 </span>
               </div>
               <div class="card-body p-4 d-flex flex-column">
@@ -255,17 +309,17 @@
                     Strategi Membangun Arsitektur MLOps Skalabel untuk Model Fine-Tuning Berkala
                   </a>
                 </h2>
-                <p class="card-text text-secondary mb-4 flex-grow-1">
+                <p class="card-text card-text-accessible mb-4 flex-grow-1">
                   Mengatasi data drift dan menjamin reproducibility model AI enterprise dengan pipeline CI/CD khusus machine learning dan continuous evaluation.
                 </p>
-                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between text-muted small">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
                   <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-person-circle fs-5 text-warning"></i>
-                    <span class="fw-semibold text-dark">Farhan Hidayat</span>
+                    <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
+                    <span class="fw-bold text-dark">Farhan Hidayat</span>
                   </div>
                   <div class="d-flex align-items-center gap-3">
-                    <span><i class="bi bi-calendar3 me-1"></i>02 Sep 2026</span>
-                    <span><i class="bi bi-clock me-1"></i>7 mnt baca</span>
+                    <span><i class="bi bi-calendar3 me-1 text-primary" aria-hidden="true"></i>02 Sep 2026</span>
+                    <span><i class="bi bi-clock me-1 text-primary" aria-hidden="true"></i>7 mnt baca</span>
                   </div>
                 </div>
               </div>
@@ -278,32 +332,32 @@
         <nav aria-label="Navigasi Halaman Blog" class="mt-5">
           <ul class="pagination justify-content-center">
             <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="bi bi-chevron-left"></i> Sebelumnya</a>
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="bi bi-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
             </li>
             <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
-              <a class="page-link" href="#">Selanjutnya <i class="bi bi-chevron-right"></i></a>
+              <a class="page-link" href="#">Selanjutnya <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
             </li>
           </ul>
         </nav>
       </div>
     </section>
 
-    <!-- Newsletter CTA Section -->
-    <section class="py-5 bg-dark text-white text-center">
+    <!-- Newsletter CTA (Heading Order h1 -> h2, Teks Kontras Tinggi pada latar gelap) -->
+    <section class="py-5 bg-dark text-white text-center" aria-labelledby="newsletterTitle">
       <div class="container py-3">
         <div class="row justify-content-center">
           <div class="col-lg-7">
-            <i class="bi bi-envelope-check display-5 text-primary mb-3"></i>
-            <h3 class="fw-bold mb-2">Dapatkan Buletin Riset AI Mingguan</h3>
-            <p class="text-secondary mb-4">
+            <i class="bi bi-envelope-check display-5 text-primary mb-3" aria-hidden="true"></i>
+            <h2 class="h3 fw-bold mb-2" id="newsletterTitle">Dapatkan Buletin Riset AI Mingguan</h2>
+            <p class="mb-4" style="color: #e2e8f0;">
               Kami merangkum perkembangan LLM, paper riset terbuka, dan arsitektur AI terbaru langsung ke kotak masuk email Anda.
             </p>
             <form class="row g-2 justify-content-center" onsubmit="event.preventDefault(); alert('Terima kasih telah berlangganan buletin NovaMind AI!');">
               <div class="col-sm-8">
-                <input type="email" class="form-control form-control-lg" placeholder="Masukkan alamat email Anda" required>
+                <input type="email" class="form-control form-control-lg" placeholder="Masukkan alamat email Anda" aria-label="Alamat email Anda" required>
               </div>
               <div class="col-sm-4">
                 <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold">Berlangganan</button>
@@ -317,43 +371,43 @@
   </main>
 
   <!-- ==========================================
-       FOOTER (BOOTSTRAP 5)
+       FOOTER (Heading Order & WCAG AA Contrast)
        ========================================== -->
-  <footer class="bg-black text-secondary py-5 border-top border-dark">
+  <footer class="bg-black py-5 border-top border-dark">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-5">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <img src="assets/img/logo.svg" alt="NovaMind AI Logo" width="28" height="28">
+            <img src="assets/img/logo.svg" alt="" width="28" height="28" aria-hidden="true">
             <span class="fs-5 brand-text">NovaMind AI</span>
           </div>
-          <p class="small text-secondary pe-lg-5">
+          <p class="small footer-custom-text pe-lg-5">
             Pusat keunggulan rekayasa kecerdasan artifisial terapan untuk efisiensi bisnis, keamanan data enterprise, dan transformasi digital masa depan.
           </p>
         </div>
         <div class="col-6 col-lg-3">
-          <h6 class="text-white fw-bold mb-3">Struktur Halaman</h6>
+          <p class="h6 text-white fw-bold mb-3">Struktur Halaman</p>
           <ul class="list-unstyled small d-flex flex-column gap-2">
-            <li><a href="index.html" class="text-secondary text-decoration-none">Landing Page (Pure CSS)</a></li>
-            <li><a href="blog.html" class="text-primary text-decoration-none fw-semibold">Daftar Blog (Bootstrap 5)</a></li>
-            <li><a href="blog-detail.html" class="text-secondary text-decoration-none">Detail Blog (Bootstrap 5)</a></li>
-            <li><a href="cv.html" class="text-secondary text-decoration-none">Curriculum Vitae (Tailwind 4)</a></li>
+            <li><a href="index.html" class="footer-custom-link">Landing Page (Pure CSS)</a></li>
+            <li><a href="blog.html" class="text-primary-emphasis text-decoration-none fw-bold">Daftar Blog (Bootstrap 5)</a></li>
+            <li><a href="blog-detail.html" class="footer-custom-link">Detail Blog (Bootstrap 5)</a></li>
+            <li><a href="cv.html" class="footer-custom-link">Curriculum Vitae (Tailwind 4)</a></li>
           </ul>
         </div>
         <div class="col-6 col-lg-4">
-          <h6 class="text-white fw-bold mb-3">Spesifikasi Akademik</h6>
-          <p class="small text-secondary mb-2">
+          <p class="h6 text-white fw-bold mb-3">Spesifikasi Akademik</p>
+          <p class="small footer-custom-text mb-2">
             Praktikum 2 — Pengembangan Aplikasi Berbasis Web (PABWE 2026).
           </p>
-          <div class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle">
+          <div class="badge footer-custom-badge">
             Stack: Bootstrap 5.3 + Bootstrap Icons
           </div>
         </div>
       </div>
 
-      <div class="pt-4 mt-4 border-top border-dark d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small">
+      <div class="pt-4 mt-4 border-top border-secondary-subtle d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small footer-custom-text">
         <span>&copy; 2026 NovaMind AI Services. Hak cipta dilindungi undang-undang.</span>
-        <span class="text-muted">Desain responsif dengan komponen resmi Bootstrap 5.</span>
+        <span>Desain responsif dengan komponen resmi Bootstrap 5.</span>
       </div>
     </div>
   </footer>

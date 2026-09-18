@@ -3,16 +3,16 @@
    File: assets/css/style.css
    Topik: Praktikum 2 PABWE 2026
    Deskripsi: Styling landing page murni tanpa framework (Zero Bootstrap/Tailwind)
+   Aksesibilitas: Memenuhi standar WCAG 2 AA (Color Contrast >= 4.5:1)
    ========================================================================== */
 
-/* 1. CSS VARIABLES & THEME TOKENS
-   -------------------------------------------------------------------------- */
+/* 1. CSS VARIABLES & THEME TOKENS */
 :root {
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-light: #60a5fa;
-  --color-accent: #06b6d4;
-  --color-accent-hover: #0891b2;
+  --color-primary: #1d4ed8;       /* Diperkuat ke blue-700 untuk kontras WCAG AA */
+  --color-primary-dark: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-accent: #0284c7;        /* Sky-600 untuk kontras lebih tajam */
+  --color-accent-hover: #0369a1;
   
   --color-dark: #0f172a;
   --color-dark-surface: #1e293b;
@@ -20,13 +20,13 @@
   
   --color-light: #f8fafc;
   --color-light-surface: #ffffff;
-  --color-border: #e2e8f0;
+  --color-border: #cbd5e1;
   
-  --color-text-main: #1e293b;
-  --color-text-muted: #64748b;
+  --color-text-main: #0f172a;     /* Teks utama slate-900 */
+  --color-text-muted: #475569;    /* Teks pendukung slate-600 (kontras 7.1:1 pada putih) */
   --color-text-inverse: #f8fafc;
   
-  --font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-mono: 'JetBrains Mono', monospace;
   
   --spacing-xs: 0.5rem;
@@ -42,16 +42,15 @@
   --radius-full: 9999px;
   
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 25px rgba(37, 99, 235, 0.25);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 25px rgba(29, 78, 216, 0.25);
   
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 2. BASE RESETS & TYPOGRAPHY
-   -------------------------------------------------------------------------- */
+/* 2. BASE RESETS & TYPOGRAPHY */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -99,8 +98,7 @@ button, input, textarea, select {
   padding-inline: 1.5rem;
 }
 
-/* 3. BUTTONS & UI COMPONENTS
-   -------------------------------------------------------------------------- */
+/* 3. BUTTONS & UI COMPONENTS */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -117,7 +115,7 @@ button, input, textarea, select {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-  color: var(--color-text-inverse);
+  color: #ffffff;
   box-shadow: var(--shadow-sm);
 }
 
@@ -128,40 +126,30 @@ button, input, textarea, select {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
   color: var(--color-dark);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
 }
 
 .btn-secondary:hover {
   background: var(--color-light);
-  border-color: var(--color-primary-light);
+  border-color: var(--color-primary);
   transform: translateY(-2px);
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--color-primary);
-  border: 1.5px solid var(--color-primary);
-}
-
-.btn-outline:hover {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-}
-
+/* Badge dengan Kontras WCAG AA (>= 4.5:1) */
 .section-badge {
   display: inline-block;
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-primary);
-  background: rgba(37, 99, 235, 0.08);
+  color: #1e40af;                 /* Blue-800: kontras 7.4:1 pada background biru muda */
+  background: #dbeafe;            /* Blue-100 */
   padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
   margin-bottom: 0.75rem;
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  border: 1px solid #bfdbfe;
 }
 
 .section-header {
@@ -185,17 +173,14 @@ button, input, textarea, select {
   color: var(--color-text-muted);
 }
 
-/* 4. HEADER & NAVIGATION BAR
-   -------------------------------------------------------------------------- */
+/* 4. HEADER & NAVIGATION */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
-  transition: background var(--transition-fast);
 }
 
 .navbar {
@@ -214,7 +199,7 @@ button, input, textarea, select {
   color: var(--color-dark);
 }
 
-.brand-logo svg {
+.brand-logo svg, .brand-logo img {
   width: 32px;
   height: 32px;
 }
@@ -233,8 +218,8 @@ button, input, textarea, select {
 
 .nav-item {
   font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
+  font-weight: 600;
+  color: #334155;                 /* Slate-700 kontras 9.1:1 */
   position: relative;
   padding-block: 0.25rem;
 }
@@ -275,14 +260,13 @@ button, input, textarea, select {
   color: var(--color-dark);
 }
 
-/* 5. HERO SECTION
-   -------------------------------------------------------------------------- */
+/* 5. HERO SECTION */
 .hero-section {
   position: relative;
   padding-block: var(--spacing-2xl) var(--spacing-xl);
   overflow: hidden;
-  background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.07) 0%, transparent 45%),
-              radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 45%);
+  background: radial-gradient(circle at 10% 20%, rgba(29, 78, 216, 0.08) 0%, transparent 45%),
+              radial-gradient(circle at 90% 80%, rgba(2, 132, 199, 0.09) 0%, transparent 45%);
 }
 
 .hero-grid {
@@ -339,12 +323,12 @@ button, input, textarea, select {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
+  font-weight: 700;
+  color: #1e293b;                 /* Kontras tinggi */
 }
 
 .trust-item svg {
-  color: #10b981;
+  color: #059669;                 /* Emerald-600 */
   width: 18px;
   height: 18px;
 }
@@ -367,7 +351,7 @@ button, input, textarea, select {
   background: var(--color-dark);
   border-radius: var(--radius-md);
   padding: 1.25rem;
-  color: #cbd5e1;
+  color: #f1f5f9;
   font-family: var(--font-family-mono);
   font-size: 0.825rem;
   line-height: 1.6;
@@ -375,10 +359,10 @@ button, input, textarea, select {
   overflow-x: auto;
 }
 
-.code-keyword { color: #f43f5e; }
+.code-keyword { color: #fb7185; }
 .code-fn { color: #38bdf8; }
-.code-str { color: #a3e635; }
-.code-comment { color: #64748b; font-style: italic; }
+.code-str { color: #bef264; }
+.code-comment { color: #cbd5e1; font-style: italic; } /* Diperbaiki dari #64748b ke #cbd5e1 (kontras 8.9:1) */
 
 .floating-badge {
   position: absolute;
@@ -403,12 +387,12 @@ button, input, textarea, select {
 
 .badge-label {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: #334155;
+  font-weight: 600;
   line-height: 1.2;
 }
 
-/* 6. LAYANAN SECTION (SERVICES)
-   -------------------------------------------------------------------------- */
+/* 6. LAYANAN SECTION (SERVICES) */
 .services-section {
   padding-block: var(--spacing-2xl);
   background-color: var(--color-light-surface);
@@ -421,7 +405,7 @@ button, input, textarea, select {
 }
 
 .service-card {
-  background: var(--color-light);
+  background: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
@@ -432,20 +416,19 @@ button, input, textarea, select {
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: var(--color-primary-light);
+  border-color: var(--color-primary);
   box-shadow: var(--shadow-lg);
-  background: #ffffff;
 }
 
 .service-icon-box {
   width: 54px;
   height: 54px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.15));
+  background: #dbeafe;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
+  color: #1e40af;
   margin-bottom: 1.5rem;
 }
 
@@ -479,19 +462,19 @@ button, input, textarea, select {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: var(--color-dark-subtle);
+  font-weight: 500;
+  color: #1e293b;
   margin-bottom: 0.4rem;
 }
 
 .service-feature-item svg {
-  color: var(--color-primary);
+  color: #1d4ed8;
   width: 14px;
   height: 14px;
   flex-shrink: 0;
 }
 
-/* 7. TENTANG & KEUNGGULAN SECTION
-   -------------------------------------------------------------------------- */
+/* 7. TENTANG & KEUNGGULAN SECTION */
 .about-section {
   padding-block: var(--spacing-2xl);
   background-color: var(--color-light);
@@ -504,7 +487,7 @@ button, input, textarea, select {
   gap: var(--spacing-xl);
 }
 
-.about-content h3 {
+.about-content h2 {
   font-size: 2rem;
   font-weight: 800;
   color: var(--color-dark);
@@ -543,7 +526,7 @@ button, input, textarea, select {
 
 .stat-title {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: #334155;
   font-weight: 600;
 }
 
@@ -551,7 +534,7 @@ button, input, textarea, select {
   background: linear-gradient(135deg, var(--color-dark), var(--color-dark-surface));
   border-radius: var(--radius-lg);
   padding: 2.5rem;
-  color: #fff;
+  color: #ffffff;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -563,7 +546,7 @@ button, input, textarea, select {
   right: 0;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.3) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -583,8 +566,8 @@ button, input, textarea, select {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--color-primary);
-  color: #fff;
+  background: #2563eb;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -593,19 +576,19 @@ button, input, textarea, select {
   flex-shrink: 0;
 }
 
-.step-info h4 {
+.step-info h3 {
   font-size: 1rem;
+  color: #ffffff;
   margin-bottom: 0.25rem;
 }
 
 .step-info p {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: #cbd5e1;                 /* Diperbaiki dari #94a3b8 ke #cbd5e1 (kontras tinggi) */
   margin: 0;
 }
 
-/* 8. KONTAK & FORM SECTION
-   -------------------------------------------------------------------------- */
+/* 8. KONTAK & FORM SECTION */
 .contact-section {
   padding-block: var(--spacing-2xl);
   background-color: var(--color-light-surface);
@@ -626,13 +609,13 @@ button, input, textarea, select {
   box-shadow: var(--shadow-lg);
 }
 
-.contact-info-card h3 {
+.contact-info-card h2 {
   font-size: 1.75rem;
   margin-bottom: 0.75rem;
 }
 
 .contact-info-card p {
-  color: #94a3b8;
+  color: #cbd5e1;                 /* Kontras tinggi pada background gelap */
   font-size: 0.95rem;
   margin-bottom: 2rem;
 }
@@ -648,11 +631,11 @@ button, input, textarea, select {
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-accent);
+  color: #38bdf8;
 }
 
 .info-icon svg {
@@ -660,7 +643,7 @@ button, input, textarea, select {
   height: 20px;
 }
 
-.info-text h4 {
+.info-text h3 {
   font-size: 0.85rem;
   color: #94a3b8;
   text-transform: uppercase;
@@ -669,7 +652,7 @@ button, input, textarea, select {
 
 .info-text p {
   font-size: 1rem;
-  color: #f8fafc;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -716,7 +699,7 @@ button, input, textarea, select {
 .form-textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2);
 }
 
 .form-textarea {
@@ -724,13 +707,12 @@ button, input, textarea, select {
   min-height: 120px;
 }
 
-/* 9. FOOTER
-   -------------------------------------------------------------------------- */
+/* 9. FOOTER DENGAN KONTRAS TINGGI */
 .site-footer {
-  background-color: var(--color-dark);
-  color: #94a3b8;
+  background-color: #0b0f19;      /* Dark surface */
+  color: #cbd5e1;                 /* Slate-300: kontras 10.5:1 pada latar gelap */
   padding-block: var(--spacing-xl) var(--spacing-md);
-  border-top: 1px solid var(--color-dark-subtle);
+  border-top: 1px solid #1e293b;
 }
 
 .footer-grid {
@@ -741,7 +723,7 @@ button, input, textarea, select {
 }
 
 .footer-brand .brand-logo {
-  color: #f8fafc;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
@@ -749,10 +731,11 @@ button, input, textarea, select {
   font-size: 0.925rem;
   line-height: 1.7;
   max-width: 320px;
+  color: #cbd5e1;
 }
 
-.footer-col h4 {
-  color: #f8fafc;
+.footer-col h2, .footer-col .footer-heading {
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 1.25rem;
@@ -764,11 +747,11 @@ button, input, textarea, select {
 
 .footer-links a {
   font-size: 0.875rem;
-  color: #94a3b8;
+  color: #cbd5e1;                 /* Diperbaiki dari #94a3b8 ke #cbd5e1 (kontras 10.5:1) */
 }
 
 .footer-links a:hover {
-  color: var(--color-primary-light);
+  color: #60a5fa;
   padding-left: 4px;
 }
 
@@ -777,35 +760,35 @@ button, input, textarea, select {
   align-items: center;
   justify-content: space-between;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.85rem;
+  color: #cbd5e1;
 }
 
-/* 10. RESPONSIVE MEDIA QUERIES
-   -------------------------------------------------------------------------- */
+.footer-bottom-note {
+  font-size: 0.8rem;
+  color: #cbd5e1;                 /* Diperbaiki dari #64748b ke #cbd5e1 */
+}
+
+/* 10. RESPONSIVE MEDIA QUERIES */
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
   .hero-content {
     max-width: 100%;
     margin-inline: auto;
   }
-  
   .hero-cta, .hero-trust {
     justify-content: center;
   }
-  
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
   .about-grid {
     grid-template-columns: 1fr;
   }
-  
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -816,11 +799,9 @@ button, input, textarea, select {
   .nav-links, .nav-actions .btn {
     display: none;
   }
-  
   .nav-toggle {
     display: block;
   }
-  
   .nav-links.active {
     display: flex;
     flex-direction: column;
@@ -834,27 +815,21 @@ button, input, textarea, select {
     box-shadow: var(--shadow-lg);
     gap: 1rem;
   }
-  
   .hero-title {
     font-size: 2.35rem;
   }
-  
   .services-grid {
     grid-template-columns: 1fr;
   }
-  
   .contact-grid {
     grid-template-columns: 1fr;
   }
-  
   .form-row {
     grid-template-columns: 1fr;
   }
-  
   .footer-grid {
     grid-template-columns: 1fr;
   }
-  
   .footer-bottom {
     flex-direction: column;
     gap: 1rem;

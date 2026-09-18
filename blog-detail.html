@@ -20,11 +20,11 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #f8fafc;
-      color: #1e293b;
+      color: #0f172a;
       line-height: 1.8;
     }
     .brand-text {
-      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      background: linear-gradient(135deg, #1d4ed8, #0284c7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
@@ -37,16 +37,59 @@
     }
     .article-body p {
       font-size: 1.1rem;
-      color: #334155;
+      color: #1e293b;                 /* Slate-800: Kontras 12.5:1 pada latar belakang */
       margin-bottom: 1.75rem;
     }
     .code-inline {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.9em;
-      background-color: #f1f5f9;
+      background-color: #e2e8f0;
       color: #0f172a;
       padding: 0.2rem 0.4rem;
       border-radius: 0.35rem;
+    }
+
+    /* WCAG AA Accessible Colors */
+    .text-meta-role {
+      color: #334155 !important;      /* Kontras 9.1:1 */
+      font-weight: 500;
+    }
+    .text-body-accessible {
+      color: #334155 !important;      /* Kontras 9.1:1 */
+    }
+    .btn-outline-primary-accessible {
+      color: #1d4ed8 !important;      /* Kontras 6.7:1 */
+      border-color: #1d4ed8 !important;
+      font-weight: 600;
+    }
+    .btn-outline-primary-accessible:hover {
+      background-color: #1d4ed8 !important;
+      color: #ffffff !important;
+    }
+
+    /* Badges High Contrast */
+    .badge-success-accessible {
+      background-color: #d1fae5 !important;
+      color: #065f46 !important;      /* Kontras 7.8:1 */
+      border: 1px solid #a7f3d0 !important;
+    }
+    .badge-primary-accessible {
+      background-color: #dbeafe !important;
+      color: #1e40af !important;      /* Kontras 7.4:1 */
+      border: 1px solid #bfdbfe !important;
+    }
+
+    /* Footer High Contrast */
+    .footer-custom-text {
+      color: #cbd5e1 !important;      /* Slate-300: Kontras 14.2:1 pada latar hitam */
+    }
+    .footer-custom-link {
+      color: #cbd5e1 !important;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-custom-link:hover {
+      color: #60a5fa !important;
     }
   </style>
 </head>
@@ -58,14 +101,13 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3 shadow-sm" aria-label="Navigasi Utama">
       <div class="container">
-        <!-- Logo & Brand Name Konsisten -->
-        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-          <img src="assets/img/logo.svg" alt="NovaMind AI Logo" width="32" height="32">
+        <!-- Logo & Brand Name (Fix image-redundant-alt) -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="NovaMind AI Beranda">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32" aria-hidden="true">
           <span class="fs-4 brand-text">NovaMind AI</span>
         </a>
 
-        <!-- Hamburger Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blogDetailNav" aria-controls="blogDetailNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blogDetailNav" aria-controls="blogDetailNav" aria-expanded="false" aria-label="Buka menu navigasi">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -84,7 +126,7 @@
 
           <div class="d-flex align-items-center gap-2">
             <a href="blog.html" class="btn btn-outline-light btn-sm px-3">
-              <i class="bi bi-arrow-left me-1"></i> Kembali ke Daftar Blog
+              <i class="bi bi-arrow-left me-1" aria-hidden="true"></i> Kembali ke Daftar Blog
             </a>
           </div>
         </div>
@@ -101,9 +143,9 @@
       <!-- Breadcrumb Navigasi -->
       <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted"><i class="bi bi-house me-1"></i>Beranda</a></li>
-          <li class="breadcrumb-item"><a href="blog.html" class="text-decoration-none text-muted">Blog Riset</a></li>
-          <li class="breadcrumb-item active text-truncate" aria-current="page" style="max-width: 320px;">Implementasi RAG Perbankan</li>
+          <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-dark fw-medium"><i class="bi bi-house me-1" aria-hidden="true"></i>Beranda</a></li>
+          <li class="breadcrumb-item"><a href="blog.html" class="text-decoration-none text-dark fw-medium">Blog Riset</a></li>
+          <li class="breadcrumb-item active text-truncate text-secondary fw-semibold" aria-current="page" style="max-width: 320px;">Implementasi RAG Perbankan</li>
         </ol>
       </nav>
 
@@ -115,47 +157,47 @@
             <!-- Meta Header Artikel -->
             <header class="mb-4">
               <span class="badge bg-primary text-white px-3 py-2 rounded-pill fw-semibold mb-3">
-                <i class="bi bi-shield-check me-1"></i> Arsitektur Enterprise AI
+                <i class="bi bi-shield-check me-1" aria-hidden="true"></i> Arsitektur Enterprise AI
               </span>
               <h1 class="display-5 fw-bold text-dark mb-3">
                 Implementasi Retrieval-Augmented Generation (RAG) untuk Keamanan Data Perbankan
               </h1>
               
-              <!-- Meta Informasi Penulis & Tanggal (Bootstrap Icons) -->
-              <div class="d-flex flex-wrap align-items-center gap-4 py-3 border-top border-bottom text-muted small">
+              <!-- Meta Informasi Penulis & Tanggal (Kontras WCAG AA) -->
+              <div class="d-flex flex-wrap align-items-center gap-4 py-3 border-top border-bottom small">
                 <div class="d-flex align-items-center gap-2">
-                  <i class="bi bi-person-circle fs-4 text-primary"></i>
+                  <i class="bi bi-person-circle fs-4 text-primary" aria-hidden="true"></i>
                   <div>
                     <span class="fw-bold text-dark d-block">Lyson Manurung</span>
-                    <span class="text-secondary">AI Solutions Engineer</span>
+                    <span class="text-meta-role">AI Solutions Engineer</span>
                   </div>
                 </div>
                 <div>
-                  <i class="bi bi-calendar3 text-primary me-1"></i>
-                  <span>16 September 2026</span>
+                  <i class="bi bi-calendar3 text-primary me-1" aria-hidden="true"></i>
+                  <span class="text-dark fw-medium">16 September 2026</span>
                 </div>
                 <div>
-                  <i class="bi bi-clock text-primary me-1"></i>
-                  <span>6 Menit Estimasi Baca</span>
+                  <i class="bi bi-clock text-primary me-1" aria-hidden="true"></i>
+                  <span class="text-dark fw-medium">6 Menit Estimasi Baca</span>
                 </div>
                 <div>
-                  <i class="bi bi-eye text-primary me-1"></i>
-                  <span>1.420 Pembaca</span>
+                  <i class="bi bi-eye text-primary me-1" aria-hidden="true"></i>
+                  <span class="text-dark fw-medium">1.420 Pembaca</span>
                 </div>
               </div>
             </header>
 
-            <!-- Banner Gambar Cover Lebar Sesuai Ketentuan -->
+            <!-- Banner Gambar Cover Lebar -->
             <div class="mb-5">
               <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80" 
                    class="article-cover shadow-sm" 
-                   alt="Diagram Visual Retrieval-Augmented Generation">
-              <p class="text-center text-muted small mt-2">
-                <i class="bi bi-info-circle me-1"></i> Ilustrasi arsitektur penelusuran semantik privat pada sistem core banking terisolasi.
+                   alt="Diagram visual alur arsitektur penelusuran semantik RAG pada sistem perbankan terisolasi">
+              <p class="text-center small mt-2 text-dark">
+                <i class="bi bi-info-circle me-1" aria-hidden="true"></i> Ilustrasi arsitektur penelusuran semantik privat pada sistem core banking terisolasi.
               </p>
             </div>
 
-            <!-- Konten Artikel (Minimal 3 Paragraf Mendalam Bertema AI) -->
+            <!-- Konten Artikel (> 3 Paragraf Mendalam) -->
             <div class="article-body">
               <p>
                 Adopsi model bahasa besar (*Large Language Models* / LLM) di industri jasa keuangan saat ini menghadapi dilema yang cukup krusial: bagaimana memanfaatkan kemampuan penalaran cerdas tanpa melanggar regulasi kerahasiaan data nasabah (*Bank Secrecy Act* dan UU PDP). Mengirimkan dokumen finansial sensitif ke server cloud publik pihak ketiga merupakan risiko kepatuhan yang sangat tinggi bagi institusi perbankan tier-1.
@@ -165,12 +207,12 @@
                 Di sinilah pendekatan **Retrieval-Augmented Generation (RAG)** membuktikan relevansinya sebagai standar industri. Berbeda dengan proses *fine-tuning* konvensional yang menyerap pengetahuan langsung ke dalam bobot parameter (*weights*) model yang rentan kebocoran (*data memorization attacks*), arsitektur RAG bertindak memisahkan antara kemampuan bernalar generatif dengan repositori dokumen referensi secara fisik. Dokumen perbankan disimpan dalam bentuk vektor di dalam database privat (*on-premise vector store*) seperti Milvus atau Qdrant yang dilindungi enkripsi AES-256.
               </p>
 
-              <!-- Alert Box Praktik Terbaik (Bootstrap Component) -->
+              <!-- Alert Box (Heading Order: h2 di dalam article) -->
               <div class="alert alert-info border-info-subtle rounded-3 p-4 my-4 d-flex align-items-start gap-3 shadow-sm" role="alert">
-                <i class="bi bi-lightbulb-fill fs-3 text-info flex-shrink-0"></i>
+                <i class="bi bi-lightbulb-fill fs-3 text-info flex-shrink-0" aria-hidden="true"></i>
                 <div>
-                  <h5 class="alert-heading fw-bold mb-1">Prinsip Keamanan RAG Perbankan</h5>
-                  <p class="mb-0 small">
+                  <h2 class="alert-heading fw-bold fs-5 mb-1 text-dark">Prinsip Keamanan RAG Perbankan</h2>
+                  <p class="mb-0 small text-dark">
                     Pastikan proses <span class="code-inline">chunking</span> dokumen memisahkan informasi sensitif (PII) sebelum pembuatan embedding vektor, dan terapkan *Role-Based Access Control* (RBAC) pada layer pencarian kemiripan kosinus (*cosine similarity*).
                   </p>
                 </div>
@@ -187,7 +229,7 @@
                     "RAG bukan hanya sekadar teknik optimasi akurasi jawaban, melainkan dinding pengaman data paling efektif untuk menjembatani inovasi kecerdasan buatan dengan kepatuhan regulasi ketat perbankan."
                   </p>
                 </blockquote>
-                <figcaption class="blockquote-footer text-muted mb-0">
+                <figcaption class="blockquote-footer text-secondary mb-0">
                   Kepala Tim Riset AI di <cite title="NovaMind AI">NovaMind AI Lab</cite>
                 </figcaption>
               </figure>
@@ -196,54 +238,53 @@
                 Hasil pengujian empiris kami menunjukkan bahwa implementasi RAG lokal mampu memangkas tingkat halusinasi (*hallucination rate*) hingga di bawah <strong>0.3%</strong>, sekaligus memastikan seluruh jejak kueri audit (*audit trail*) tercatat secara kriptografis tanpa ada satupun byte data yang keluar dari batas jaringan intranet institusi.
               </p>
 
-              <!-- Daftar Rekomendasi Teknis -->
+              <!-- Daftar Rekomendasi Teknis (Heading Order: h2) -->
               <div class="card bg-white border rounded-4 p-4 my-4 shadow-sm">
-                <h4 class="h5 fw-bold text-dark mb-3">
-                  <i class="bi bi-check2-square text-primary me-2"></i>Rekomendasi Tahapan Penerapan
-                </h4>
+                <h2 class="h5 fw-bold text-dark mb-3">
+                  <i class="bi bi-check2-square text-primary me-2" aria-hidden="true"></i>Rekomendasi Tahapan Penerapan
+                </h2>
                 <ol class="list-group list-group-numbered list-group-flush">
                   <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="ms-2">Sanitasi dokumen dan sensor otomatis data PII (*Personally Identifiable Information*).</span>
-                    <span class="badge bg-success-subtle text-success">Wajib</span>
+                    <span class="ms-2 text-dark">Sanitasi dokumen dan sensor otomatis data PII (*Personally Identifiable Information*).</span>
+                    <span class="badge badge-success-accessible">Wajib</span>
                   </li>
                   <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="ms-2">Pemilihan embedding model bilingual (Bahasa Indonesia & Bahasa Inggris teknis).</span>
-                    <span class="badge bg-primary-subtle text-primary">Direkomendasikan</span>
+                    <span class="ms-2 text-dark">Pemilihan embedding model bilingual (Bahasa Indonesia & Bahasa Inggris teknis).</span>
+                    <span class="badge badge-primary-accessible">Direkomendasikan</span>
                   </li>
                   <li class="list-group-item d-flex align-items-center justify-content-between">
-                    <span class="ms-2">Integrasi mekanisme Re-ranking (Cross-Encoder) untuk menyeleksi 3 konteks paling valid.</span>
-                    <span class="badge bg-primary-subtle text-primary">Kinerja Tinggi</span>
+                    <span class="ms-2 text-dark">Integrasi mekanisme Re-ranking (Cross-Encoder) untuk menyeleksi 3 konteks paling valid.</span>
+                    <span class="badge badge-primary-accessible">Kinerja Tinggi</span>
                   </li>
                 </ol>
               </div>
 
             </div>
 
-            <!-- Bagian Author Bio -->
+            <!-- Bagian Author Bio (Heading Order: h2) -->
             <div class="card bg-light border-0 rounded-4 p-4 my-5 shadow-sm">
               <div class="d-flex flex-column flex-sm-row align-items-center gap-3 text-center text-sm-start">
                 <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 70px; height: 70px; font-size: 1.75rem; font-weight: 700;">
                   LM
                 </div>
                 <div>
-                  <h5 class="fw-bold text-dark mb-1">Ditulis oleh: Lyson Manurung</h5>
-                  <p class="text-secondary small mb-2">
+                  <h2 class="h5 fw-bold text-dark mb-1">Ditulis oleh: Lyson Manurung</h2>
+                  <p class="text-body-accessible small mb-2">
                     AI Solutions Engineer di NovaMind AI & Mahasiswa Informatika Institut Teknologi Del. Berfokus pada implementasi LLM, arsitektur RAG, dan pengembangan sistem web modern skala enterprise.
                   </p>
-                  <a href="cv.html" class="btn btn-sm btn-outline-primary rounded-pill">
-                    <i class="bi bi-person-badge me-1"></i> Lihat Curriculum Vitae Lengkap
+                  <a href="cv.html" class="btn btn-sm btn-outline-primary-accessible rounded-pill">
+                    <i class="bi bi-person-badge me-1" aria-hidden="true"></i> Lihat Curriculum Vitae Lengkap
                   </a>
                 </div>
               </div>
             </div>
 
-            <!-- Bagian Komentar Sederhana Sesuai Spesifikasi -->
-            <section class="mt-5 pt-4 border-top">
-              <h3 class="h4 fw-bold text-dark mb-4">
-                <i class="bi bi-chat-dots-fill text-primary me-2"></i>Diskusi & Komentar (2)
-              </h3>
+            <!-- Bagian Komentar (Heading Order: h2 untuk seksi, h3 untuk form) -->
+            <section class="mt-5 pt-4 border-top" aria-labelledby="commentSectionTitle">
+              <h2 class="h4 fw-bold text-dark mb-4" id="commentSectionTitle">
+                <i class="bi bi-chat-dots-fill text-primary me-2" aria-hidden="true"></i>Diskusi & Komentar (2)
+              </h2>
 
-              <!-- Komentar yang sudah ada -->
               <div class="d-flex gap-3 mb-4">
                 <div class="bg-secondary-subtle text-dark rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px; font-weight: bold;">
                   RS
@@ -251,34 +292,34 @@
                 <div class="bg-white p-3 rounded-3 border flex-grow-1 shadow-sm">
                   <div class="d-flex justify-content-between align-items-center mb-1">
                     <span class="fw-bold text-dark small">Rian Surya (Security Architect)</span>
-                    <span class="text-muted small">17 Sep 2026</span>
+                    <span class="text-dark small">17 Sep 2026</span>
                   </div>
-                  <p class="small text-secondary mb-0">
+                  <p class="small text-body-accessible mb-0">
                     Sangat setuju dengan pemisahan database vektor on-premise. Kami pernah mencoba embedding cloud dan langsung terbentur audit regulasi BI. Terima kasih artikelnya!
                   </p>
                 </div>
               </div>
 
-              <!-- Form Kirim Komentar -->
+              <!-- Form Kirim Komentar (Heading Order: h3 di bawah h2 Diskusi) -->
               <div class="card bg-white border rounded-4 p-4 shadow-sm">
-                <h5 class="fw-bold text-dark mb-3">Tulis Tanggapan Anda</h5>
+                <h3 class="h5 fw-bold text-dark mb-3">Tulis Tanggapan Anda</h3>
                 <form onsubmit="event.preventDefault(); alert('Komentar Anda berhasil dikirim dan menunggu moderasi.');">
                   <div class="row g-3 mb-3">
                     <div class="col-md-6">
-                      <label for="commentName" class="form-label small fw-semibold">Nama Lengkap</label>
+                      <label for="commentName" class="form-label small fw-semibold text-dark">Nama Lengkap</label>
                       <input type="text" id="commentName" class="form-control form-control-sm" placeholder="Nama Anda" required>
                     </div>
                     <div class="col-md-6">
-                      <label for="commentEmail" class="form-label small fw-semibold">Alamat Email</label>
+                      <label for="commentEmail" class="form-label small fw-semibold text-dark">Alamat Email</label>
                       <input type="email" id="commentEmail" class="form-control form-control-sm" placeholder="email@domain.com" required>
                     </div>
                   </div>
                   <div class="mb-3">
-                    <label for="commentContent" class="form-label small fw-semibold">Pesan / Tanggapan</label>
+                    <label for="commentContent" class="form-label small fw-semibold text-dark">Pesan / Tanggapan</label>
                     <textarea id="commentContent" class="form-control" rows="3" placeholder="Sampaikan pandangan atau pertanyaan Anda seputar topik ini..." required></textarea>
                   </div>
                   <button type="submit" class="btn btn-primary btn-sm px-4 fw-semibold">
-                    <i class="bi bi-send me-1"></i> Kirim Komentar
+                    <i class="bi bi-send me-1" aria-hidden="true"></i> Kirim Komentar
                   </button>
                 </form>
               </div>
@@ -289,33 +330,31 @@
         </div>
       </div>
 
-      <!-- Bagian Artikel Terkait -->
-      <section class="mt-5 pt-5 border-top">
-        <h3 class="h4 fw-bold text-dark mb-4">Riset AI Terkait Lainnya</h3>
+      <!-- Bagian Artikel Terkait (Heading Order: h2 untuk seksi, h3 untuk judul card) -->
+      <section class="mt-5 pt-5 border-top" aria-labelledby="relatedTitle">
+        <h2 class="h4 fw-bold text-dark mb-4" id="relatedTitle">Riset AI Terkait Lainnya</h2>
         <div class="row g-4">
-          <!-- Card Terkait 1 -->
           <div class="col-md-6">
             <div class="card border rounded-4 overflow-hidden h-100 shadow-sm bg-white">
               <div class="card-body p-4">
-                <span class="badge bg-info text-dark rounded-pill mb-2"><i class="bi bi-camera me-1"></i>Computer Vision</span>
-                <h4 class="h5 fw-bold mb-2">
+                <span class="badge bg-primary text-white rounded-pill mb-2"><i class="bi bi-camera me-1" aria-hidden="true"></i>Computer Vision</span>
+                <h3 class="h5 fw-bold mb-2">
                   <a href="blog.html" class="text-decoration-none text-dark">Optimalisasi Computer Vision untuk Quality Assurance Manufaktur</a>
-                </h4>
-                <p class="small text-secondary mb-3">Studi implementasi deep learning berbasis YOLOv11 dan edge computing untuk deteksi cacat microchip.</p>
-                <a href="blog.html" class="btn btn-sm btn-outline-primary">Lihat di Katalog</a>
+                </h3>
+                <p class="small text-body-accessible mb-3">Studi implementasi deep learning berbasis YOLOv11 dan edge computing untuk deteksi cacat microchip.</p>
+                <a href="blog.html" class="btn btn-sm btn-outline-primary-accessible">Lihat di Katalog</a>
               </div>
             </div>
           </div>
-          <!-- Card Terkait 2 -->
           <div class="col-md-6">
             <div class="card border rounded-4 overflow-hidden h-100 shadow-sm bg-white">
               <div class="card-body p-4">
-                <span class="badge bg-success rounded-pill mb-2"><i class="bi bi-robot me-1"></i>Autonomous Agents</span>
-                <h4 class="h5 fw-bold mb-2">
+                <span class="badge bg-success text-white rounded-pill mb-2"><i class="bi bi-robot me-1" aria-hidden="true"></i>Autonomous Agents</span>
+                <h3 class="h5 fw-bold mb-2">
                   <a href="blog.html" class="text-decoration-none text-dark">Mengenal AI Agents: Paradigma Baru Otomasi Perusahaan</a>
-                </h4>
-                <p class="small text-secondary mb-3">Agen otonom mampu merencanakan tugas multi-langkah dan mengakses sistem ERP tanpa instruksi berulang.</p>
-                <a href="blog.html" class="btn btn-sm btn-outline-primary">Lihat di Katalog</a>
+                </h3>
+                <p class="small text-body-accessible mb-3">Agen otonom mampu merencanakan tugas multi-langkah dan mengakses sistem ERP tanpa instruksi berulang.</p>
+                <a href="blog.html" class="btn btn-sm btn-outline-primary-accessible">Lihat di Katalog</a>
               </div>
             </div>
           </div>
@@ -326,38 +365,38 @@
   </main>
 
   <!-- ==========================================
-       FOOTER (BOOTSTRAP 5)
+       FOOTER (WCAG AA Kontras & Heading Semantics)
        ========================================== -->
-  <footer class="bg-black text-secondary py-5 border-top border-dark mt-auto">
+  <footer class="bg-black py-5 border-top border-dark mt-auto">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <img src="assets/img/logo.svg" alt="NovaMind AI Logo" width="28" height="28">
+            <img src="assets/img/logo.svg" alt="" width="28" height="28" aria-hidden="true">
             <span class="fs-5 brand-text">NovaMind AI</span>
           </div>
-          <p class="small text-secondary pe-lg-5">
+          <p class="small footer-custom-text pe-lg-5">
             Publikasi berkala dari divisi riset dan rekayasa kecerdasan artifisial NovaMind AI Services. Mendukung adopsi AI yang aman, akurat, dan beretika.
           </p>
         </div>
         <div class="col-6 col-lg-3">
-          <h6 class="text-white fw-bold mb-3">Navigasi Utama</h6>
+          <p class="h6 text-white fw-bold mb-3">Navigasi Utama</p>
           <ul class="list-unstyled small d-flex flex-column gap-2">
-            <li><a href="index.html" class="text-secondary text-decoration-none">Landing Page (Pure CSS)</a></li>
-            <li><a href="blog.html" class="text-secondary text-decoration-none">Daftar Blog (Bootstrap 5)</a></li>
-            <li><a href="cv.html" class="text-secondary text-decoration-none">Curriculum Vitae (Tailwind 4)</a></li>
+            <li><a href="index.html" class="footer-custom-link">Landing Page (Pure CSS)</a></li>
+            <li><a href="blog.html" class="footer-custom-link">Daftar Blog (Bootstrap 5)</a></li>
+            <li><a href="cv.html" class="footer-custom-link">Curriculum Vitae (Tailwind 4)</a></li>
           </ul>
         </div>
         <div class="col-6 col-lg-3">
-          <h6 class="text-white fw-bold mb-3">Hubungi Kami</h6>
-          <p class="small text-secondary mb-1"><i class="bi bi-envelope me-1"></i> research@novamind.ai</p>
-          <p class="small text-secondary mb-0"><i class="bi bi-geo-alt me-1"></i> Toba, Sumatera Utara</p>
+          <p class="h6 text-white fw-bold mb-3">Hubungi Kami</p>
+          <p class="small footer-custom-text mb-1"><i class="bi bi-envelope me-1" aria-hidden="true"></i> research@novamind.ai</p>
+          <p class="small footer-custom-text mb-0"><i class="bi bi-geo-alt me-1" aria-hidden="true"></i> Toba, Sumatera Utara</p>
         </div>
       </div>
 
-      <div class="pt-4 mt-4 border-top border-dark d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small">
+      <div class="pt-4 mt-4 border-top border-secondary-subtle d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small footer-custom-text">
         <span>&copy; 2026 NovaMind AI Services. Hak Cipta Dilindungi.</span>
-        <span class="text-muted">Praktikum 2 — PABWE 2026.</span>
+        <span>Praktikum 2 — PABWE 2026.</span>
       </div>
     </div>
   </footer>
