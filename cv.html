@@ -43,14 +43,27 @@
         <a href="cv.html" class="text-blue-700 border-b-2 border-blue-700 pb-0.5" aria-current="page">Curriculum Vitae</a>
       </nav>
 
-      <!-- Tombol Aksi Kontak -->
-      <div class="flex items-center gap-3">
-        <a href="mailto:lyson@hyperlink.ai" class="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-blue-700 hover:bg-blue-800 rounded-lg shadow-sm transition hover:-translate-y-0.5">
+      <!-- Tombol Aksi Kontak & Hamburger Mobile -->
+      <div class="flex items-center gap-2">
+        <a href="mailto:lyson@hyperlink.ai" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-blue-700 hover:bg-blue-800 rounded-lg shadow-sm transition hover:-translate-y-0.5">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           Hubungi Saya
         </a>
+        <button id="cvNavToggleBtn" aria-label="Buka Menu Navigasi Mobile" aria-expanded="false" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
     </div>
+
+    <!-- Navigasi Mobile Dropdown (Responsif Mobile) -->
+    <nav id="cvMobileNav" aria-label="Navigasi Mobile CV" class="hidden md:hidden border-t border-slate-200 bg-white px-4 py-3 space-y-1">
+      <a href="index.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100 hover:text-blue-700 transition">Landing Page</a>
+      <a href="blog.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100 hover:text-blue-700 transition">Blog & Riset AI</a>
+      <a href="cv.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-blue-700 bg-blue-50" aria-current="page">Curriculum Vitae</a>
+      <a href="mailto:lyson@hyperlink.ai" class="block sm:hidden px-3 py-2 rounded-lg text-sm font-semibold text-white bg-blue-700 text-center mt-2">Hubungi Saya</a>
+    </nav>
   </header>
 
   <!-- ==========================================
@@ -329,5 +342,16 @@
     </div>
   </footer>
 
+  <!-- Script Toggle Mobile Menu Navigasi -->
+  <script>
+    const cvToggleBtn = document.getElementById('cvNavToggleBtn');
+    const cvMobileNav = document.getElementById('cvMobileNav');
+    if (cvToggleBtn && cvMobileNav) {
+      cvToggleBtn.addEventListener('click', () => {
+        const isHidden = cvMobileNav.classList.toggle('hidden');
+        cvToggleBtn.setAttribute('aria-expanded', !isHidden);
+      });
+    }
+  </script>
 </body>
 </html>

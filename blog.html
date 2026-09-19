@@ -16,102 +16,8 @@
   
   <!-- Bootstrap Icons CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <!-- Penyesuaian Aksesibilitas WCAG 2 AA (Color Contrast >= 4.5:1) -->
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f8fafc;
-      color: #0f172a;
-    }
-    .brand-text {
-      background: linear-gradient(135deg, #1d4ed8, #0284c7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-    }
-    .card-blog {
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border: 1px solid #cbd5e1;
-    }
-    .card-blog:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
-      border-color: #94a3b8;
-    }
-    .article-thumbnail {
-      height: 210px;
-      object-fit: cover;
-      width: 100%;
-    }
-    .text-title-hover:hover {
-      color: #1d4ed8 !important;
-    }
-    
-    /* WCAG AA Contrast Overrides */
-    .lead-accessible {
-      color: #334155 !important;
-    }
-    .card-text-accessible {
-      color: #334155 !important;
-    }
-    .meta-text-accessible {
-      color: #475569 !important;
-    }
-    .btn-outline-secondary {
-      color: #334155 !important;
-      border-color: #64748b !important;
-      font-weight: 500;
-    }
-    .btn-outline-secondary:hover {
-      background-color: #334155 !important;
-      color: #ffffff !important;
-    }
-    
-    /* Accessible Badges */
-    .badge-primary-accessible {
-      background-color: #dbeafe !important;
-      color: #1e40af !important;
-      border: 1px solid #bfdbfe !important;
-    }
-    .badge-info-accessible {
-      background-color: #075985 !important;
-      color: #ffffff !important;
-    }
-    .badge-success-accessible {
-      background-color: #065f46 !important;
-      color: #ffffff !important;
-    }
-    .badge-warning-accessible {
-      background-color: #78350f !important;
-      color: #ffffff !important;
-    }
-
-    /* Footer High Contrast (Fix kontras text-primary-emphasis pada latar hitam) */
-    .footer-custom-text {
-      color: #cbd5e1 !important;
-    }
-    .footer-custom-link {
-      color: #cbd5e1 !important;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-custom-link:hover {
-      color: #60a5fa !important;
-    }
-    .footer-active-link {
-      color: #60a5fa !important;      /* Kontras 8.5:1 pada latar hitam */
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .footer-custom-badge {
-      background-color: #1e293b !important;
-      color: #e2e8f0 !important;
-      border: 1px solid #475569 !important;
-    }
-  </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 bg-light text-dark">
 
   <!-- HEADER & NAVBAR -->
   <header>
@@ -120,7 +26,7 @@
         <!-- Logo & Brand Name (Fix image-redundant-alt) -->
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="HyperLink Beranda">
           <img src="assets/img/logo.svg" alt="" width="32" height="32" aria-hidden="true">
-          <span class="fs-4 brand-text">HyperLink</span>
+          <span class="fs-4 fw-bold text-white">HyperLink</span>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blogNavbarContent" aria-controls="blogNavbarContent" aria-expanded="false" aria-label="Buka menu navigasi">
@@ -159,11 +65,11 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-8">
-            <span class="badge badge-primary-accessible px-3 py-2 rounded-pill fw-bold text-uppercase mb-3">
+            <span class="badge bg-primary text-white px-3 py-2 rounded-pill fw-bold text-uppercase mb-3">
               <i class="bi bi-journal-code me-1" aria-hidden="true"></i> Publikasi & Riset Industri
             </span>
             <h1 class="display-5 fw-bold text-dark mb-3" id="blogTitle">Wawasan Terkini Kecerdasan Artifisial</h1>
-            <p class="lead lead-accessible mb-0">
+            <p class="lead text-dark mb-0">
               Temukan analisis mendalam, arsitektur teknis, dan praktik terbaik implementasi AI skala produksi dari para praktisi HyperLink.
             </p>
           </div>
@@ -183,10 +89,10 @@
       <div class="container d-flex gap-2 flex-wrap align-items-center">
         <span class="small fw-bold me-2 text-dark"><i class="bi bi-funnel me-1" aria-hidden="true"></i>Kategori:</span>
         <button class="btn btn-sm btn-dark rounded-pill px-3">Semua Topik</button>
-        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">Generative AI & LLM</button>
-        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">Computer Vision</button>
-        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">Autonomous Agents</button>
-        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3">Data Engineering</button>
+        <button class="btn btn-sm btn-outline-dark rounded-pill px-3">Generative AI & LLM</button>
+        <button class="btn btn-sm btn-outline-dark rounded-pill px-3">Computer Vision</button>
+        <button class="btn btn-sm btn-outline-dark rounded-pill px-3">Autonomous Agents</button>
+        <button class="btn btn-sm btn-outline-dark rounded-pill px-3">Data Engineering</button>
       </div>
     </section>
 
@@ -197,24 +103,26 @@
 
           <!-- Artikel 1 (Featured) -->
           <div class="col-md-6 col-lg-6">
-            <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+            <article class="card h-100 shadow-sm rounded-4 overflow-hidden bg-white border">
               <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Diagram arsitektur RAG perbankan">
+                <div class="ratio ratio-16x9">
+                  <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=900&q=80" class="card-img-top object-fit-cover" alt="Diagram arsitektur RAG perbankan">
+                </div>
                 <span class="position-absolute top-0 start-0 m-3 badge bg-primary text-white shadow-sm px-3 py-2 rounded-pill fw-semibold">
                   <i class="bi bi-shield-lock-fill me-1" aria-hidden="true"></i> Keamanan Finansial
                 </span>
               </div>
               <div class="card-body p-4 d-flex flex-column">
                 <h2 class="card-title h4 fw-bold mb-3">
-                  <a href="blog-detail.html" class="text-decoration-none text-dark text-title-hover">
+                  <a href="blog-detail.html" class="text-decoration-none text-dark">
                     Implementasi Retrieval-Augmented Generation (RAG) untuk Keamanan Data Perbankan
                   </a>
                 </h2>
-                <p class="card-text card-text-accessible mb-4 flex-grow-1">
+                <p class="card-text text-secondary-emphasis mb-4 flex-grow-1">
                   Bagaimana mengintegrasikan model bahasa besar (LLM) dengan database vektor on-premise tanpa mengekspos data nasabah sensitif ke server publik.
                 </p>
                 <!-- Metadata: Penulis Lyson Paulus Esar Manik, Tanggal, Waktu Baca -->
-                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between text-secondary-emphasis small">
                   <div class="d-flex align-items-center gap-2">
                     <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
                     <span class="fw-bold text-dark">Lyson Paulus Esar Manik</span>
@@ -230,23 +138,25 @@
 
           <!-- Artikel 2: Computer Vision -->
           <div class="col-md-6 col-lg-6">
-            <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+            <article class="card h-100 shadow-sm rounded-4 overflow-hidden bg-white border">
               <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Inspeksi otomatis pabrik dengan computer vision">
-                <span class="position-absolute top-0 start-0 m-3 badge badge-info-accessible shadow-sm px-3 py-2 rounded-pill fw-semibold">
+                <div class="ratio ratio-16x9">
+                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" class="card-img-top object-fit-cover" alt="Inspeksi otomatis pabrik dengan computer vision">
+                </div>
+                <span class="position-absolute top-0 start-0 m-3 badge bg-dark text-white shadow-sm px-3 py-2 rounded-pill fw-semibold">
                   <i class="bi bi-camera me-1" aria-hidden="true"></i> Smart Factory
                 </span>
               </div>
               <div class="card-body p-4 d-flex flex-column">
                 <h2 class="card-title h4 fw-bold mb-3">
-                  <a href="blog-detail.html" class="text-decoration-none text-dark text-title-hover">
+                  <a href="blog-detail.html" class="text-decoration-none text-dark">
                     Optimalisasi Computer Vision untuk Quality Assurance Manufaktur Berkecepatan Tinggi
                   </a>
                 </h2>
-                <p class="card-text card-text-accessible mb-4 flex-grow-1">
+                <p class="card-text text-secondary-emphasis mb-4 flex-grow-1">
                   Studi implementasi deep learning berbasis YOLOv11 dan edge computing untuk mendeteksi mikrodefek pada perakitan microchip elektronik secara real-time.
                 </p>
-                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between text-secondary-emphasis small">
                   <div class="d-flex align-items-center gap-2">
                     <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
                     <span class="fw-bold text-dark">Dr. Alamsyah</span>
@@ -262,23 +172,25 @@
 
           <!-- Artikel 3: Autonomous AI Agents -->
           <div class="col-md-6 col-lg-6">
-            <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+            <article class="card h-100 shadow-sm rounded-4 overflow-hidden bg-white border">
               <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Visualisasi alur kerja AI agents">
-                <span class="position-absolute top-0 start-0 m-3 badge badge-success-accessible shadow-sm px-3 py-2 rounded-pill fw-semibold">
+                <div class="ratio ratio-16x9">
+                  <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80" class="card-img-top object-fit-cover" alt="Visualisasi alur kerja AI agents">
+                </div>
+                <span class="position-absolute top-0 start-0 m-3 badge bg-success text-white shadow-sm px-3 py-2 rounded-pill fw-semibold">
                   <i class="bi bi-robot me-1" aria-hidden="true"></i> Agentic AI
                 </span>
               </div>
               <div class="card-body p-4 d-flex flex-column">
                 <h2 class="card-title h4 fw-bold mb-3">
-                  <a href="blog-detail.html" class="text-decoration-none text-dark text-title-hover">
+                  <a href="blog-detail.html" class="text-decoration-none text-dark">
                     Mengenal AI Agents: Paradigma Baru Otomasi Alur Kerja Terintegrasi Perusahaan
                   </a>
                 </h2>
-                <p class="card-text card-text-accessible mb-4 flex-grow-1">
+                <p class="card-text text-secondary-emphasis mb-4 flex-grow-1">
                   Bukan sekadar chatbot biasa, agen otonom kini mampu merencanakan tugas multi-langkah, mengakses sistem ERP, dan memecahkan masalah tanpa instruksi berulang.
                 </p>
-                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between text-secondary-emphasis small">
                   <div class="d-flex align-items-center gap-2">
                     <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
                     <span class="fw-bold text-dark">Siti Rahmawati</span>
@@ -294,23 +206,25 @@
 
           <!-- Artikel 4: Big Data & MLOps -->
           <div class="col-md-6 col-lg-6">
-            <article class="card card-blog h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+            <article class="card h-100 shadow-sm rounded-4 overflow-hidden bg-white border">
               <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" class="card-img-top article-thumbnail" alt="Server rak data center dan cloud AI">
-                <span class="position-absolute top-0 start-0 m-3 badge badge-warning-accessible shadow-sm px-3 py-2 rounded-pill fw-semibold">
+                <div class="ratio ratio-16x9">
+                  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" class="card-img-top object-fit-cover" alt="Server rak data center dan cloud AI">
+                </div>
+                <span class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark shadow-sm px-3 py-2 rounded-pill fw-semibold">
                   <i class="bi bi-hdd-network me-1" aria-hidden="true"></i> MLOps & Infra
                 </span>
               </div>
               <div class="card-body p-4 d-flex flex-column">
                 <h2 class="card-title h4 fw-bold mb-3">
-                  <a href="blog-detail.html" class="text-decoration-none text-dark text-title-hover">
+                  <a href="blog-detail.html" class="text-decoration-none text-dark">
                     Strategi Membangun Arsitektur MLOps Skalabel untuk Model Fine-Tuning Berkala
                   </a>
                 </h2>
-                <p class="card-text card-text-accessible mb-4 flex-grow-1">
+                <p class="card-text text-secondary-emphasis mb-4 flex-grow-1">
                   Mengatasi data drift dan menjamin reproducibility model AI enterprise dengan pipeline CI/CD khusus machine learning dan continuous evaluation.
                 </p>
-                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between meta-text-accessible small">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between text-secondary-emphasis small">
                   <div class="d-flex align-items-center gap-2">
                     <i class="bi bi-person-circle fs-5 text-primary" aria-hidden="true"></i>
                     <span class="fw-bold text-dark">Farhan Hidayat</span>
@@ -368,40 +282,40 @@
 
   </main>
 
-  <!-- FOOTER (Perbaikan kontras footer-active-link 8.5:1) -->
+  <!-- FOOTER (Bootstrap 5 Utilities Murni) -->
   <footer class="bg-black py-5 border-top border-dark">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-5">
           <div class="d-flex align-items-center gap-2 mb-3">
             <img src="assets/img/logo.svg" alt="" width="28" height="28" aria-hidden="true">
-            <span class="fs-5 brand-text">HyperLink</span>
+            <span class="fs-5 fw-bold text-white">HyperLink</span>
           </div>
-          <p class="small footer-custom-text pe-lg-5">
+          <p class="small text-light pe-lg-5">
             Pusat keunggulan rekayasa kecerdasan artifisial terapan untuk efisiensi bisnis, keamanan data enterprise, dan transformasi digital masa depan.
           </p>
         </div>
         <div class="col-6 col-lg-3">
           <p class="h6 text-white fw-bold mb-3">Struktur Halaman</p>
           <ul class="list-unstyled small d-flex flex-column gap-2">
-            <li><a href="index.html" class="footer-custom-link">Landing Page (Pure CSS)</a></li>
-            <li><a href="blog.html" class="footer-active-link">Daftar Blog (Bootstrap 5)</a></li>
-            <li><a href="blog-detail.html" class="footer-custom-link">Detail Blog (Bootstrap 5)</a></li>
-            <li><a href="cv.html" class="footer-custom-link">Curriculum Vitae (Tailwind 4)</a></li>
+            <li><a href="index.html" class="text-light text-decoration-none">Landing Page (Pure CSS)</a></li>
+            <li><a href="blog.html" class="text-info fw-bold text-decoration-none">Daftar Blog (Bootstrap 5)</a></li>
+            <li><a href="blog-detail.html" class="text-light text-decoration-none">Detail Blog (Bootstrap 5)</a></li>
+            <li><a href="cv.html" class="text-light text-decoration-none">Curriculum Vitae (Tailwind 4)</a></li>
           </ul>
         </div>
         <div class="col-6 col-lg-4">
           <p class="h6 text-white fw-bold mb-3">Spesifikasi Akademik</p>
-          <p class="small footer-custom-text mb-2">
+          <p class="small text-light mb-2">
             Praktikum 2 — Pengembangan Aplikasi Berbasis Web (PABWE 2026).
           </p>
-          <div class="badge footer-custom-badge">
+          <div class="badge bg-dark border border-secondary text-light">
             Stack: Bootstrap 5.3 + Bootstrap Icons
           </div>
         </div>
       </div>
 
-      <div class="pt-4 mt-4 border-top border-secondary-subtle d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small footer-custom-text">
+      <div class="pt-4 mt-4 border-top border-secondary-subtle d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-light">
         <span>&copy; 2026 HyperLink Services. Hak cipta dilindungi undang-undang.</span>
         <span>Desain responsif dengan komponen resmi Bootstrap 5.</span>
       </div>

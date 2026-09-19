@@ -89,13 +89,13 @@
 
         <div class="hero-visual">
           <div class="visual-card-main">
-            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--color-border); padding-bottom: 0.75rem;">
-              <div style="display: flex; gap: 0.35rem;">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+            <div class="code-card-header">
+              <div class="code-window-dots">
+                <span class="code-dot code-dot-red"></span>
+                <span class="code-dot code-dot-yellow"></span>
+                <span class="code-dot code-dot-green"></span>
               </div>
-              <span style="font-size: 0.75rem; color: #475569; font-family: var(--font-family-mono); font-weight: 600;">hyperlink-rag-agent.py</span>
+              <span class="code-filename">hyperlink-rag-agent.py</span>
             </div>
             <pre class="ai-code-preview"><code><span class="code-comment"># Pipeline Inisialisasi Model AI HyperLink</span>
 <span class="code-keyword">from</span> hyperlink.core <span class="code-keyword">import</span> NeuralEngine, VectorStore
@@ -210,7 +210,7 @@ response = engine.<span class="code-fn">generate_agentic_workflow</span>(
       <div class="container about-grid">
         <div class="about-content">
           <span class="section-badge">Tentang HyperLink</span>
-          <h2 class="section-title" id="aboutTitle" style="text-align: left; font-size: 2rem; margin-bottom: 1rem;">Menjembatani Riset Mutakhir AI ke Implementasi Nyata</h2>
+          <h2 class="section-title about-heading" id="aboutTitle">Menjembatani Riset Mutakhir AI ke Implementasi Nyata</h2>
           <p>
             Didirikan oleh praktisi kecerdasan artifisial dan insinyur perangkat lunak, HyperLink berkomitmen menghadirkan inovasi komputasi kognitif yang bertanggung jawab, transparan, dan berdampak langsung pada pertumbuhan bisnis klien.
           </p>
@@ -240,7 +240,7 @@ response = engine.<span class="code-fn">generate_agentic_workflow</span>(
 
         <div class="about-visual">
           <div class="visual-pattern"></div>
-          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: #ffffff;">Alur Kerja Implementasi HyperLink</h3>
+          <h3 class="workflow-title">Alur Kerja Implementasi HyperLink</h3>
           <div class="pipeline-list">
             <div class="pipeline-step">
               <div class="step-num">1</div>
@@ -287,7 +287,7 @@ response = engine.<span class="code-fn">generate_agentic_workflow</span>(
         <div class="contact-grid">
           <!-- Info Kontak -->
           <div class="contact-info-card">
-            <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: #ffffff;">Mari Berdiskusi</h3>
+            <h3 class="contact-card-title">Mari Berdiskusi</h3>
             <p>Jadwalkan sesi demonstrasi atau diskusi teknis bersama konsultan AI senior kami.</p>
             
             <div class="info-item">
@@ -350,7 +350,7 @@ response = engine.<span class="code-fn">generate_agentic_workflow</span>(
                 <textarea id="message" name="message" class="form-textarea" placeholder="Jelaskan secara singkat permasalahan dan tujuan yang ingin dicapai melalui adopsi AI..." required></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Permintaan Konsultasi</button>
+              <button type="submit" class="btn btn-primary btn-full-width">Kirim Permintaan Konsultasi</button>
             </form>
           </div>
         </div>
@@ -396,11 +396,11 @@ response = engine.<span class="code-fn">generate_agentic_workflow</span>(
 
       <div class="footer-col">
         <h2 class="footer-heading">Tentang Proyek</h2>
-        <p style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.75rem; color: #cbd5e1;">
+        <p class="footer-project-desc">
           Praktikum 2 — PABWE 2026<br>
           Topik: Pure CSS, Bootstrap 5, Tailwind CSS 4
         </p>
-        <span style="font-size: 0.75rem; color: #cbd5e1;">Dikerjakan secara modular dengan pemisahan dependensi ketat.</span>
+        <span class="footer-project-note">Dikerjakan secara modular dengan pemisahan dependensi ketat.</span>
       </div>
     </div>
 

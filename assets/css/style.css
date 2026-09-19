@@ -836,3 +836,80 @@ button, input, textarea, select {
     text-align: center;
   }
 }
+
+/* ==========================================
+   COMPONENT CLASSES (Pemisahan Markup & CSS Bersih)
+   ========================================== */
+.code-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.75rem;
+}
+
+.code-window-dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.code-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.code-dot-red {
+  background-color: #ef4444;
+}
+
+.code-dot-yellow {
+  background-color: #f59e0b;
+}
+
+.code-dot-green {
+  background-color: #10b981;
+}
+
+.code-filename {
+  font-size: 0.75rem;
+  color: #475569;
+  font-family: var(--font-family-mono);
+  font-weight: 600;
+}
+
+.about-heading {
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.workflow-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.contact-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.btn-full-width {
+  width: 100%;
+}
+
+.footer-project-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: #cbd5e1;
+}
+
+.footer-project-note {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
